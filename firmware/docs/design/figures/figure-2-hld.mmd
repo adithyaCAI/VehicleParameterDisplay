@@ -1,0 +1,46 @@
+flowchart TD
+  subgraph Hardware["Connected hardware"]
+    imu["Accelerometer<br/>MPU6050 at 0x68"]
+    dht["Temperature and humidity sensor<br/>DHT22 data on PB4"]
+    oled["Display<br/>SH1106 at 0x3C"]
+    i2c["I2C1 bus<br/>PB8 SCL, PB9 SDA"]
+    led["Indicator LED<br/>PA5"]
+    uart["UART device<br/>USART2 TX PA2, RX PA3"]
+    console["Console and telemetry sink<br/>UART output"]
+  end
+
+  subgraph Firmware["Firmware owners"]
+    app["Application orchestration<br/>firmware/app/app.c"]
+    sensors["Sensor service<br/>firmware/services/sensors.c"]
+    mpu_drv["MPU6050 driver<br/>firmware/drivers/mpu6050/mpu6050.c"]
+    dht_drv["DHT22 decoder<br/>firmware/drivers/dht22/dht22.c"]
+    ride["Ride event detection<br/>firmware/modules/ride_events.c"]
+    display["Dashboard and splash service<br/>firmware/services/display.c"]
+    sh_drv["SH1106 driver<br/>firmware/drivers/sh1106/sh1106.c"]
+    telemetry["CSV telemetry service<br/>firmware/services/telemetry.c"]
+    platform["STM32 I/O owner<br/>firmware/platforms/stm32/platform_io.c"]
+    fgtelemetry["Boot and runtime telemetry<br/>firmware/telemetry/firmgen_telemetry.c"]
+  end
+
+  app -->|sensors_init / sensors_process| sensors
+  app -->|ride_events_sample / update| ride
+  app -->|display_init / set_event / process| display
+  app -->|telemetry_process| telemetry
+  app -->|firmgen_telemetry_start / poll| fgtelemetry
+  app -->|platform_io_init / scan / poll / led| platform
+  sensors -->|mpu6050_init / read| mpu_drv
+  mpu_drv -->|platform_io_read / write| platform
+  sensors -->|DHT frame decode| dht_drv
+  sensors -->|platform_io_dht_frame| platform
+  display -->|sh1106_init / page / enable| sh_drv
+  sh_drv -->|platform_io_transmit| platform
+  telemetry -->|platform_io_telemetry| platform
+  platform -->|HAL_I2C_* on I2C1| i2c
+  i2c -->|I2C register and data transfers| imu
+  i2c -->|I2C display commands and pixels| oled
+  platform -->|GPIO read/write| dht
+  platform -->|HAL_GPIO_WritePin via platform_io_led| led
+  platform -->|HAL_UART_Transmit / LL_USART_TransmitData8| uart
+  platform -->|firmgen_uart_handle| fgtelemetry
+  fgtelemetry -->|HAL_UART_Transmit| uart
+  uart -->|diagnostic logs and telemetry bytes| console

@@ -1,0 +1,135 @@
+{
+  "job_id": "9644482e-e79d-4a82-94a5-216362661baf",
+  "document_id": "088ac216-376b-4826-bb32-499c6c35609a",
+  "frozen_at": "2026-11-16T13:01:17.410Z",
+  "requirement_count": 33,
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Board & Firmware Configuration",
+      "description": "Covers the target development board and shared compile-time configuration for splash timing, climate limits, and ride-event thresholds.",
+      "requirements": [
+        "The firmware shall target the STM32-NUCLEO-G070RB development board.",
+        "The firmware project shall provide a configurable LOGO_DISPLAY_MS macro in config.h with a default value of 2000.",
+        "The firmware project shall define the climate and ride-event thresholds, sudden window, and event display time as configurable parameters in config.h.",
+        "The firmware shall use 32 degC as the configured high-temperature threshold.",
+        "The firmware shall use 75% as the configured high-humidity threshold."
+      ],
+      "requirement_ids": [
+        "HW-001",
+        "HW-003",
+        "HW-004",
+        "FR-019",
+        "FR-020"
+      ],
+      "tasks": [],
+      "gate": "ask",
+      "criteria": []
+    },
+    {
+      "id": "cat-2",
+      "name": "Sensor Acquisition & I2C Bus",
+      "description": "Covers DHT22 and MPU6050 interfacing, shared I2C access, sampling, calibration, axis interpretation, and acquisition-failure handling.",
+      "requirements": [
+        "The firmware shall acquire temperature and humidity from a DHT22 sensor connected through PB4.",
+        "The firmware shall interface with an MPU6050 3-axis accelerometer and gyroscope over I2C on PB8 (SCL) and PB9 (SDA), sharing the bus with the OLED.",
+        "The firmware shall coordinate access to the shared I2C bus so transactions to the MPU6050 and OLED do not overlap or corrupt one another.",
+        "While displaying the logo, the firmware shall initialize the DHT22 and perform MPU6050 zeroing in the background without extending the splash duration.",
+        "The firmware shall read temperature in degrees Celsius and humidity in percent from the DHT22 every 2 seconds.",
+        "The firmware shall read the MPU6050 X, Y, and Z acceleration at 100 Hz using the +/-4 g range and convert the readings to g units.",
+        "At power-up, the firmware shall zero the MPU6050 readings after the board has been flat and still for 1 second, producing X = 0 g, Y = 0 g, and Z = 1 g.",
+        "The firmware shall map X acceleration to lateral cornering, Y acceleration to longitudinal acceleration/braking, and Z acceleration to vertical bumps.",
+        "The firmware shall detect failed DHT22 or MPU6050 acquisitions and shall not use failed acquisition results as valid displayed measurements or inputs to event detection."
+      ],
+      "requirement_ids": [
+        "IF-001",
+        "IF-002",
+        "IF-007",
+        "FR-002",
+        "FR-005",
+        "FR-007",
+        "FR-008",
+        "FR-009",
+        "DIAG-001"
+      ],
+      "tasks": [],
+      "gate": "ask",
+      "criteria": []
+    },
+    {
+      "id": "cat-3",
+      "name": "OLED Display & Startup UI",
+      "description": "Covers SH1106 display access, logo asset and splash behavior, startup-to-dashboard transition, and rendering of vehicle measurements and alerts.",
+      "requirements": [
+        "The firmware shall drive a 1.3-inch I2C OLED using the SH1106 driver over PB8 (SCL) and PB9 (SDA), shared with the MPU6050.",
+        "The firmware project shall contain the CraftifAI logo as a flash-resident 1-bit monochrome bitmap array in logo.h, formatted for the SH1106 as 128x64 pixels, 8 pages by 128 columns, with LSB as the top row.",
+        "The firmware shall display the 124x26-pixel logo artwork centred on the display with a black border, white on a black background.",
+        "The firmware shall implement splash timing non-blockingly using HAL_GetTick rather than a blocking delay.",
+        "During the logo splash, the firmware shall show no alerts and shall not blink the LED.",
+        "The SH1106 driver shall apply a 2-column offset when writing the logo and all other screens to account for its 132 columns of RAM and 128 visible columns.",
+        "When an event occurs, the firmware shall immediately show its message on the OLED while keeping Temperature and Humidity visible.",
+        "After the splash, the firmware shall display a Vehicle Parameters screen containing temperature from the DHT22 in degC, humidity from the DHT22 in percent, and X, Y, and Z acceleration values in g.",
+        "The firmware shall initialize the SH1106 display interface before its first display write, early enough for the logo to appear within 100 ms of power-up.",
+        "On power-up or reset, the firmware shall display the CraftifAI logo on the OLED for 2 seconds before displaying sensor data or a heading, then switch to the Vehicle Parameters screen.",
+        "The firmware shall display the acceleration values on the Vehicle Parameters screen using the labels \"X:\", \"Y:\", and \"Z:\", with the Z value followed by \" g\"."
+      ],
+      "requirement_ids": [
+        "IF-003",
+        "HW-002",
+        "FR-001",
+        "FR-003",
+        "FR-004",
+        "IF-004",
+        "FR-012",
+        "FR-016",
+        "IF-006",
+        "FR-018",
+        "FR-021"
+      ],
+      "tasks": [],
+      "gate": "ask",
+      "criteria": []
+    },
+    {
+      "id": "cat-4",
+      "name": "Ride Event Detection & LED Alerts",
+      "description": "Covers climate-limit alert decisions, ride-event detection and prioritization, and LD4 alert blinking and hold timing.",
+      "requirements": [
+        "When temperature or humidity exceeds its configured high limit, the firmware shall display an exclamation mark next to the corresponding value.",
+        "The firmware shall detect an event when its associated axis changes by at least the configured threshold within 100 ms.",
+        "The firmware shall detect and identify Unseen SpeedBreaker when Z changes by at least 0.30 g, Wide Turn when X changes by at least 0.25 g, Speeding when Y changes positively by at least 0.25 g, and Sudden Braking when Y changes negatively by at least 0.25 g.",
+        "The firmware shall control the inbuilt user LED LD4 through PA5.",
+        "While an event alert is active, the firmware shall blink LD4 at 1 Hz with 500 ms on and 500 ms off.",
+        "The firmware shall continue displaying the event message and blinking the LED for 2 seconds after the last event.",
+        "When event messages overlap, the firmware shall prioritize them in this order: Sudden Braking, Unseen SpeedBreaker, Wide Turn, then Speeding."
+      ],
+      "requirement_ids": [
+        "FR-006",
+        "FR-010",
+        "FR-011",
+        "IF-005",
+        "FR-013",
+        "FR-014",
+        "FR-015"
+      ],
+      "tasks": [],
+      "gate": "ask",
+      "criteria": []
+    },
+    {
+      "id": "cat-5",
+      "name": "Dashboard Data Streaming",
+      "description": "Covers streaming cabin-comfort and ride measurements to a dashboard for review and tracking.",
+      "requirements": [
+        "The firmware shall stream cabin comfort and ride data to a dashboard for driver-behaviour review or ride-comfort tracking."
+      ],
+      "requirement_ids": [
+        "FR-017"
+      ],
+      "tasks": [],
+      "gate": "ask",
+      "criteria": []
+    }
+  ],
+  "file_checksum": "7d218c61e36dc1b953a4932f814e57dc029b75459b9f464020d7f8c3009394b4"
+}

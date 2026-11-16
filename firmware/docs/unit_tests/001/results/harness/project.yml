@@ -1,0 +1,87 @@
+---
+:project:
+  :use_exceptions: false
+  :use_test_preprocessor: :all
+  :use_auxiliary_dependencies: true
+  :build_root: build
+  :test_file_prefix: test_
+  :which_ceedling: gem
+  :default_tasks:
+  - test:all
+  :compile_threads: 8
+  :test_threads: 8
+:extension:
+  :executable: .out
+:paths:
+  :test:
+  - test/**
+  :source:
+  - repo/vehicleparametersdisplay/Core/Src
+  - repo/vehicleparametersdisplay/Core/Startup/iar
+  - repo/vehicleparametersdisplay/firmware/app
+  - repo/vehicleparametersdisplay/firmware/bsp
+  - repo/vehicleparametersdisplay/firmware/drivers/dht22
+  - repo/vehicleparametersdisplay/firmware/drivers/mpu6050
+  - repo/vehicleparametersdisplay/firmware/drivers/sh1106
+  - repo/vehicleparametersdisplay/firmware/modules
+  - repo/vehicleparametersdisplay/firmware/platforms/stm32
+  - repo/vehicleparametersdisplay/firmware/services
+  - repo/vehicleparametersdisplay/firmware/telemetry
+  - repo/vehicleparametersdisplay/firmware/utils/helpers
+  - repo/vehicleparametersdisplay/firmware/utils/logger
+  :include:
+  - repo/vehicleparametersdisplay/Core/Inc
+  - repo/vehicleparametersdisplay/firmware/app
+  - repo/vehicleparametersdisplay/firmware/bsp
+  - repo/vehicleparametersdisplay/firmware/configs
+  - repo/vehicleparametersdisplay/firmware/drivers/dht22
+  - repo/vehicleparametersdisplay/firmware/drivers/mpu6050
+  - repo/vehicleparametersdisplay/firmware/drivers/sh1106
+  - repo/vehicleparametersdisplay/firmware/interfaces
+  - repo/vehicleparametersdisplay/firmware/modules
+  - repo/vehicleparametersdisplay/firmware/osal
+  - repo/vehicleparametersdisplay/firmware/services
+  - repo/vehicleparametersdisplay/firmware/telemetry
+  - repo/vehicleparametersdisplay/firmware/utils/helpers
+  - repo/vehicleparametersdisplay/firmware/utils/logger
+  - support/host_shim
+  - support
+  :support:
+  - support/**
+:defines:
+  :test:
+  - UNIT_TEST
+  - HOST_TEST
+  - UNITY_INCLUDE_EXEC_TIME
+:flags:
+  :test:
+    :compile:
+      :*:
+      - -include support/host_register_shim.h
+      - --coverage
+    :link:
+      :*:
+      - --coverage
+:libraries:
+  :test:
+  - m
+:cmock:
+  :mock_prefix: mock_
+  :when_no_prototypes: :warn
+  :enforce_strict_ordering: false
+  :plugins:
+  - :ignore
+  - :ignore_arg
+  - :callback
+  - :return_thru_ptr
+  - :expect_any_args
+  :treat_as:
+    uint8: HEX8
+    uint16: HEX16
+    uint32: UINT32
+    int8: INT8
+    bool: UINT8
+:plugins:
+  :load_paths: []
+  :enabled:
+  - report_tests_pretty_stdout

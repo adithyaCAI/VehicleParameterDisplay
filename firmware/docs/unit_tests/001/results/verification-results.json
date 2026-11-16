@@ -1,0 +1,2279 @@
+{
+  "schema": "firmgen.test-results/2",
+  "host": "Adithya",
+  "harness": "ceedling 1.1.6",
+  "at": "2026-11-16T13:46:51.104166+00:00",
+  "source_fingerprint": "ffe2b7d26be32ae5e1f12c204430ab4a3192892fe9e5073d0a01b499cba16025",
+  "sources_compiled": 13,
+  "tests": [
+    {
+      "name": "test_HW_001_01",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "HW-001"
+      ],
+      "criterion_ids": [
+        "24a8f78678c542d42b88dfc0623290cd593544c8339c296a9edf629b6a542cb1"
+      ],
+      "message": "NEEDS_TARGET: HW-001 cannot be tested: The supplied code exposes no runtime program-counter sampling or target execution result with which to verify that the firmware runs on a physical NUCLEO-G070RB and advances between samples. Criterion: The firmware image executes on a NUCLEO-G070RB board. (e...",
+      "test_file": "test_HW_001.c"
+    },
+    {
+      "name": "test_HW_003_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "HW-003"
+      ],
+      "criterion_ids": [
+        "1f3d2e5c14545dc68c0f0b66289204059fd7279dbfca1b763b7d41a49ba19562"
+      ],
+      "message": "",
+      "test_file": "test_HW_003.c"
+    },
+    {
+      "name": "test_HW_004_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "HW-004"
+      ],
+      "criterion_ids": [
+        "15ad6a7124c32a5869494a377e3085c6978ddc73fbac1267154bb72ea0924ca2"
+      ],
+      "message": "",
+      "test_file": "test_HW_004.c"
+    },
+    {
+      "name": "test_HW_004_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "HW-004"
+      ],
+      "criterion_ids": [
+        "d51f73643d486cc8ee8e57b2e4bd991fb826605c201dea1aa1c2fec79d682de2"
+      ],
+      "message": "",
+      "test_file": "test_HW_004.c"
+    },
+    {
+      "name": "test_HW_004_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "HW-004"
+      ],
+      "criterion_ids": [
+        "41351b964b804c91a960290d259b107154a6cb6b14a600101f08def266c47b8f"
+      ],
+      "message": "",
+      "test_file": "test_HW_004.c"
+    },
+    {
+      "name": "test_FR_019_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-019"
+      ],
+      "criterion_ids": [
+        "c30fe70e1ca7736fffca6dad8aa84bc02cc18cb9ba570b9c0294e97b30ecded3"
+      ],
+      "message": "",
+      "test_file": "test_FR_019.c"
+    },
+    {
+      "name": "test_FR_020_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-020"
+      ],
+      "criterion_ids": [
+        "5b2c169f89b8da3bf0c9fb7efa8998eaf1fd6bb910af3d9f9cd5e5095483b051"
+      ],
+      "message": "",
+      "test_file": "test_FR_020.c"
+    },
+    {
+      "name": "test_IF_001_01",
+      "outcome": "blocked",
+      "requirement_ids": [
+        "IF-001"
+      ],
+      "criterion_ids": [
+        "d4a84fb127078d1af3dd73f86f3579f9668c3ecc28605a886d797b308fd5cfd1"
+      ],
+      "message": "did not compile after 3 repair attempt(s): test/test_IF_001.c:32:27: error: 'GPIOB' undeclared (first use in this function)\ntest/test_IF_001.c:32:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_PTR'\ntest/test_IF_001.c:32:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_PTR'\ntest/test_IF_001.c:33:27: error: 'GPIO_PIN_4' undeclared (first use in this function)\ntest/test_IF_001.c:33:5: note: in expansion of macro 'TEST_ASSERT_EQUAL_INT'",
+      "test_file": "test_IF_001.c"
+    },
+    {
+      "name": "test_IF_002_01",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "IF-002"
+      ],
+      "criterion_ids": [
+        "fd074c379b4296c1d6e80f5c50dcab02ae6b787cd94788786af5f88fd09f5f76"
+      ],
+      "message": "BLOCKED: IF-002 cannot be tested: The provided host vendor types make firmware/platforms/stm32/platform_io.c fail compilation at its HAL_GPIO_WritePin call, preventing a test from exercising and recording the I2C pin and shared-bus setup. Criterion: The I2C configuration assigns PB8 to SCL and PB...",
+      "test_file": "test_IF_002.c"
+    },
+    {
+      "name": "test_IF_007_01",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "IF-007"
+      ],
+      "criterion_ids": [
+        "e44294cbbd030b3a5ab4c793a599133da8b5a16398b81eddeee1aad22ba33a94"
+      ],
+      "message": "BLOCKED: IF-007 cannot be tested: firmware/platforms/stm32/platform_io.c fails host compilation at line 62 because HAL_GPIO_WritePin receives a pointer where the synthesized host interface expects an integer, preventing the transaction functions from being linked and exercised. Criterion: Concurr...",
+      "test_file": "test_IF_007.c"
+    },
+    {
+      "name": "test_FR_002_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-002"
+      ],
+      "criterion_ids": [
+        "91a6a9b36bc6d1e25e4ce99dc9cbad27e26cd09e59b10af2184fd9ea03c03aa7"
+      ],
+      "message": "",
+      "test_file": "test_FR_002.c"
+    },
+    {
+      "name": "test_FR_005_01",
+      "outcome": "blocked",
+      "requirement_ids": [
+        "FR-005"
+      ],
+      "criterion_ids": [
+        "8d0be61c40a81e1775918378ea8295245dc8691d9f6c027d33c97d5d764aeed9"
+      ],
+      "message": "did not compile after 3 repair attempt(s): [platform_io.c is a firmware source this test links, and it does not compile in this build. Do not change the firmware: mock that module (#include \"mock_platform_io.h\") instead of linking it, or stop including its header.]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:62:60: error: passing argument 3 of 'HAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:125:55: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:167:60: error: passing argument 3 of 'HAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:269:55: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?",
+      "test_file": "test_FR_005.c"
+    },
+    {
+      "name": "test_FR_005_02",
+      "outcome": "blocked",
+      "requirement_ids": [
+        "FR-005"
+      ],
+      "criterion_ids": [
+        "943005fa863544a96e5a01e29c0bebd609e282a70b60d7104809b432e8b8a75d"
+      ],
+      "message": "did not compile after 3 repair attempt(s): [platform_io.c is a firmware source this test links, and it does not compile in this build. Do not change the firmware: mock that module (#include \"mock_platform_io.h\") instead of linking it, or stop including its header.]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:62:60: error: passing argument 3 of 'HAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:125:55: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:167:60: error: passing argument 3 of 'HAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:269:55: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?",
+      "test_file": "test_FR_005.c"
+    },
+    {
+      "name": "test_FR_007_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-007"
+      ],
+      "criterion_ids": [
+        "d516aad93164edd419188ca3227f35aa33ffdb6a580e755797b4c78a1c6388aa"
+      ],
+      "message": "",
+      "test_file": "test_FR_007.c"
+    },
+    {
+      "name": "test_FR_007_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-007"
+      ],
+      "criterion_ids": [
+        "47a60f44874226ca5c4aadff10f089a4044638364c116ab2b51c81640d57c64a"
+      ],
+      "message": "",
+      "test_file": "test_FR_007.c"
+    },
+    {
+      "name": "test_FR_007_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-007"
+      ],
+      "criterion_ids": [
+        "bb89d72df7f1d1cc5c98151a39fdc721203bb60a0ef23644721ffd1f4a6dc878"
+      ],
+      "message": "",
+      "test_file": "test_FR_007.c"
+    },
+    {
+      "name": "test_FR_008_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-008"
+      ],
+      "criterion_ids": [
+        "5f8e6d9066c01e1a1eb54bf50953e03d5e9c2965f33fa47e658c7d10e464e368"
+      ],
+      "message": "",
+      "test_file": "test_FR_008.c"
+    },
+    {
+      "name": "test_FR_008_02",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "FR-008"
+      ],
+      "criterion_ids": [
+        "05747147f33a8ae24f0e5e9176a59737d6cb4032e07ffaf3456ea5f0faf47f21"
+      ],
+      "message": "BLOCKED: the display public API and display implementation needed to observe the active screen and its presented values are not provided.",
+      "test_file": "test_FR_008.c"
+    },
+    {
+      "name": "test_FR_009_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-009"
+      ],
+      "criterion_ids": [
+        "5cd4e12896b585d5e5a496c15da2e6a905b53dd403e6af88b64c6f3094f78360"
+      ],
+      "message": "",
+      "test_file": "test_FR_009.c"
+    },
+    {
+      "name": "test_FR_009_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-009"
+      ],
+      "criterion_ids": [
+        "7c501f2cd1a1f9994e01166fec68ee150c8ddfd7112726357a93d79fb09f287e"
+      ],
+      "message": "",
+      "test_file": "test_FR_009.c"
+    },
+    {
+      "name": "test_DIAG_001_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "DIAG-001"
+      ],
+      "criterion_ids": [
+        "9888c39e3c0fb43041cb4f84117f099af8137f075d9e2a1190b813e9267d963b"
+      ],
+      "message": "",
+      "test_file": "test_DIAG_001.c"
+    },
+    {
+      "name": "test_DIAG_001_02",
+      "outcome": "fail",
+      "requirement_ids": [
+        "DIAG-001"
+      ],
+      "criterion_ids": [
+        "4b785938ec9ce05d279bb2937b6e08984878996c32fb6785aa2dd75ef9aefbc6"
+      ],
+      "message": "Function platform_io_poll: Expected TRUE Was FALSE",
+      "test_file": "test_DIAG_001.c"
+    },
+    {
+      "name": "test_IF_003_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "IF-003"
+      ],
+      "criterion_ids": [
+        "b632725a72f6e0fdb17d0512771a8e05f4d1d22806ba7322af19ae919c00241e"
+      ],
+      "message": "",
+      "test_file": "test_IF_003.c"
+    },
+    {
+      "name": "test_IF_003_02",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "IF-003"
+      ],
+      "criterion_ids": [
+        "c4837dcb87934c44ca9fff56690263ed034f20819e9bf91ba9ba91bbd5322313"
+      ],
+      "message": "BLOCKED: The shown headers and source do not specify the OLED diagonal; sources/PRD.md is absent.",
+      "test_file": "test_IF_003.c"
+    },
+    {
+      "name": "test_HW_002_01",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "HW-002"
+      ],
+      "criterion_ids": [
+        "de88321751c72358f96f210741aff4036b28dd9a7bf6db2d4d7926dc7d797b3a"
+      ],
+      "message": "NEEDS_REVIEW: HW-002 cannot be tested: The bit-0-to-top-row mapping for display_logo is expressed only in the logo.h comment; the flat byte array provides no executable bit-order metadata for a host assertion to inspect. Criterion: The logo.h asset declares a flash-resident 1-bit bitmap containin...",
+      "test_file": "test_HW_002.c"
+    },
+    {
+      "name": "test_HW_002_02",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "HW-002"
+      ],
+      "criterion_ids": [
+        "3036d5a78c18fef67f853aa7741ceb3e5a5c486bb4bdb91879b2594951af3d44"
+      ],
+      "message": "NEEDS_REVIEW: HW-002 cannot be tested: The bit-0-to-top-row mapping for display_logo is expressed only in the logo.h comment; the flat byte array provides no executable bit-order metadata for a host assertion to inspect. Criterion: The logo asset definition specifies that each byte's least-signif...",
+      "test_file": "test_HW_002.c"
+    },
+    {
+      "name": "test_FR_001_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-001"
+      ],
+      "criterion_ids": [
+        "3f28be05b8dce5137f7c910fc4e8622453eb9bd651d067b2dfc8174d72583fec"
+      ],
+      "message": "",
+      "test_file": "test_FR_001.c"
+    },
+    {
+      "name": "test_FR_001_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-001"
+      ],
+      "criterion_ids": [
+        "eae5688064a05bf62ae663e8023139f90c9a3a20a61620c399f8406d26373ed9"
+      ],
+      "message": "",
+      "test_file": "test_FR_001.c"
+    },
+    {
+      "name": "test_FR_003_01",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "FR-003"
+      ],
+      "criterion_ids": [
+        "f8015ce94e2b6a008dd7e5b360f2fda75ed62a91a2370972112e888bc11b9426"
+      ],
+      "message": "BLOCKED: FR-003 cannot be tested: The real platform_io_now_ms() in firmware/platforms/stm32/platform_io.c cannot be linked into a host test because that file fails compilation at the listed HAL_GPIO_WritePin type error, and a replacement fake cannot decide whether the production implementation us...",
+      "test_file": "test_FR_003.c"
+    },
+    {
+      "name": "test_FR_004_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-004"
+      ],
+      "criterion_ids": [
+        "f22c7f4b233cc36b3bfd7d188239170415637682f46aa57c78b39570b9c10451"
+      ],
+      "message": "",
+      "test_file": "test_FR_004.c"
+    },
+    {
+      "name": "test_IF_004_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "IF-004"
+      ],
+      "criterion_ids": [
+        "f82a44f479c398d0290bee2dea75ce2506f7ef352f5ed10e07b5f54371c3da26"
+      ],
+      "message": "",
+      "test_file": "test_IF_004.c"
+    },
+    {
+      "name": "test_FR_012_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-012"
+      ],
+      "criterion_ids": [
+        "eb79dccce589ec3146f1e2ee0169b2132c710c76e1ada986b66a765db0b68402"
+      ],
+      "message": "",
+      "test_file": "test_FR_012.c"
+    },
+    {
+      "name": "test_FR_012_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-012"
+      ],
+      "criterion_ids": [
+        "5d6e1a8ec45804b3276081bff7a6fe746304c7279b80ce0c566500943043a330"
+      ],
+      "message": "",
+      "test_file": "test_FR_012.c"
+    },
+    {
+      "name": "test_FR_016_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-016"
+      ],
+      "criterion_ids": [
+        "848278c6d596ee8c93f75cef2c5a146d7df436846025678013b6bd1d7dae631e"
+      ],
+      "message": "",
+      "test_file": "test_FR_016.c"
+    },
+    {
+      "name": "test_FR_016_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-016"
+      ],
+      "criterion_ids": [
+        "bc349bf214ddf9b9af1178f1ef00fd9c1c656403ad9259e6057c0902fb5e933b"
+      ],
+      "message": "",
+      "test_file": "test_FR_016.c"
+    },
+    {
+      "name": "test_IF_006_01",
+      "outcome": "fail",
+      "requirement_ids": [
+        "IF-006"
+      ],
+      "criterion_ids": [
+        "2e487de5e9aa007ef4d08756779d2cacbe4e02f80cd26cd7a1ac2d7cd162275f"
+      ],
+      "message": "Expected 8 Was 0:Function firmgen_telemetry_poll",
+      "test_file": "test_IF_006.c"
+    },
+    {
+      "name": "test_FR_018_01",
+      "outcome": "fail",
+      "requirement_ids": [
+        "FR-018"
+      ],
+      "criterion_ids": [
+        "626716434602132c6bc484797da0a13e06974d2db36f51442adad03fc40ad69c"
+      ],
+      "message": "Expected 8 Was 0",
+      "test_file": "test_FR_018.c"
+    },
+    {
+      "name": "test_FR_018_02",
+      "outcome": "fail",
+      "requirement_ids": [
+        "FR-018"
+      ],
+      "criterion_ids": [
+        "57abb23286dd26bcdb21df2af1c1f23455e8cb57d68152d93e6e53a6aebac0f3"
+      ],
+      "message": "Expected FALSE Was TRUE",
+      "test_file": "test_FR_018.c"
+    },
+    {
+      "name": "test_FR_021_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-021"
+      ],
+      "criterion_ids": [
+        "e901b82adc57c633d653253c30ce88cfe9911a82082b8cab875b1b6527655d1f"
+      ],
+      "message": "",
+      "test_file": "test_FR_021.c"
+    },
+    {
+      "name": "test_FR_006_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-006"
+      ],
+      "criterion_ids": [
+        "856a0d571c07a15b5aa167c8fd93f1885afa1665a208d19f7e120b4fa9414d79"
+      ],
+      "message": "",
+      "test_file": "test_FR_006.c"
+    },
+    {
+      "name": "test_FR_006_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-006"
+      ],
+      "criterion_ids": [
+        "c2eb6f33b3d20ff7bc1b5b133e9d03e006157e41c7da4b48b22064418b5f3a69"
+      ],
+      "message": "",
+      "test_file": "test_FR_006.c"
+    },
+    {
+      "name": "test_FR_010_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-010"
+      ],
+      "criterion_ids": [
+        "acf5d0940a28201e0fe588abd22d02966bbe786fe407052dc8f2b26530c173a7"
+      ],
+      "message": "",
+      "test_file": "test_FR_010.c"
+    },
+    {
+      "name": "test_FR_010_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-010"
+      ],
+      "criterion_ids": [
+        "94651a9c2a4f1a995aed2264b0838e097a48ee55cfe0cb53f299148852527d66"
+      ],
+      "message": "",
+      "test_file": "test_FR_010.c"
+    },
+    {
+      "name": "test_FR_011_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-011"
+      ],
+      "criterion_ids": [
+        "2c771a05b2c2941c3831881f55b1c7c545bcfd34ee73ea1cb88fac4e2c099ac8"
+      ],
+      "message": "",
+      "test_file": "test_FR_011.c"
+    },
+    {
+      "name": "test_FR_011_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-011"
+      ],
+      "criterion_ids": [
+        "c9b90a89c6e4b82f63e6620780d216f8e0373f9d18601b72a847df392fd8d5f3"
+      ],
+      "message": "",
+      "test_file": "test_FR_011.c"
+    },
+    {
+      "name": "test_FR_011_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-011"
+      ],
+      "criterion_ids": [
+        "a3c8511693355391ac80676ec76bbfd95513f5eaf0e676ce5852237b68c0fb58"
+      ],
+      "message": "",
+      "test_file": "test_FR_011.c"
+    },
+    {
+      "name": "test_FR_011_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-011"
+      ],
+      "criterion_ids": [
+        "7c82efaf02c8fcc540298ff3faefa274e9860ff2a217b557f4cfd13ad52ad2b9"
+      ],
+      "message": "",
+      "test_file": "test_FR_011.c"
+    },
+    {
+      "name": "test_FR_011_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-011"
+      ],
+      "criterion_ids": [
+        "9248c6456b5992671fce5067603cb90e8ffb0c00cf11a1630642cd545b8930a0"
+      ],
+      "message": "",
+      "test_file": "test_FR_011.c"
+    },
+    {
+      "name": "test_IF_005_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "IF-005"
+      ],
+      "criterion_ids": [
+        "0e797415959ae030ad083ad74c16a92de8f391f317842ea7e9a8cfe87d482059"
+      ],
+      "message": "",
+      "test_file": "test_IF_005.c"
+    },
+    {
+      "name": "test_FR_013_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-013"
+      ],
+      "criterion_ids": [
+        "e613f0ff7d858732460adef029faa0006402b642e98198cef00bfeab772661e9"
+      ],
+      "message": "",
+      "test_file": "test_FR_013.c"
+    },
+    {
+      "name": "test_FR_014_01",
+      "outcome": "ignore",
+      "requirement_ids": [
+        "FR-014"
+      ],
+      "criterion_ids": [
+        "ffd5336ab04c7dc75dc10f4379b8fa7c84c76ccda833e59b7eeb0791c02e4d79"
+      ],
+      "message": "BLOCKED: app_start keeps event state local, and the provided display interface is only mockable calls; there is no observable OLED contents or public way to seed an event and verify the displayed message.",
+      "test_file": "test_FR_014.c"
+    },
+    {
+      "name": "test_FR_014_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-014"
+      ],
+      "criterion_ids": [
+        "546305d6e4e79bec433456895ee96c0e8f67ca232c5f658e872dbef51ba87d04"
+      ],
+      "message": "",
+      "test_file": "test_FR_014.c"
+    },
+    {
+      "name": "test_FR_015_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "FR-015"
+      ],
+      "criterion_ids": [
+        "374e79f2f1dad53aeef8a881c93bef14bdc44618109667c069a7e1949bb9e978"
+      ],
+      "message": "",
+      "test_file": "test_FR_015.c"
+    },
+    {
+      "name": "test_FR_017_01",
+      "outcome": "blocked",
+      "requirement_ids": [
+        "FR-017"
+      ],
+      "criterion_ids": [
+        "9c38f746e433db933b049051580cb4b62c09aa5609ded379b5c5fbb32f5fc728"
+      ],
+      "message": "did not compile after 3 repair attempt(s): [platform_io.c is a firmware source this test links, and it does not compile in this build. Do not change the firmware: mock that module (#include \"mock_platform_io.h\") instead of linking it, or stop including its header.]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:62:60: error: passing argument 3 of 'HAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:125:55: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:167:60: error: passing argument 3 of 'HAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]\nrepo/vehicleparametersdisplay/firmware/platforms/stm32/platform_io.c:269:55: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?",
+      "test_file": "test_FR_017.c"
+    },
+    {
+      "name": "test_app_start_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_app_start.c"
+    },
+    {
+      "name": "test_app_start_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_app_start.c"
+    },
+    {
+      "name": "test_app_start_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_app_start.c"
+    },
+    {
+      "name": "test_app_start_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_app_start.c"
+    },
+    {
+      "name": "test_app_start_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_app_start.c"
+    },
+    {
+      "name": "test_app_start_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_app_start.c"
+    },
+    {
+      "name": "test_board_name_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_board_name.c"
+    },
+    {
+      "name": "test_dht22_decode_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_07",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_08",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_09",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_10",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_11",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_dht22_decode_12",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_dht22_decode.c"
+    },
+    {
+      "name": "test_mpu6050_init_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_07",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_08",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_09",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_10",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_11",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_init_12",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_init.c"
+    },
+    {
+      "name": "test_mpu6050_read_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_read.c"
+    },
+    {
+      "name": "test_mpu6050_read_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_read.c"
+    },
+    {
+      "name": "test_mpu6050_read_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_read.c"
+    },
+    {
+      "name": "test_mpu6050_read_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_read.c"
+    },
+    {
+      "name": "test_mpu6050_read_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_read.c"
+    },
+    {
+      "name": "test_mpu6050_read_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_mpu6050_read.c"
+    },
+    {
+      "name": "test_mpu6050_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_mpu6050.c"
+    },
+    {
+      "name": "test_mpu6050_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_mpu6050.c"
+    },
+    {
+      "name": "test_mpu6050_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_mpu6050.c"
+    },
+    {
+      "name": "test_mpu6050_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_mpu6050.c"
+    },
+    {
+      "name": "test_mpu6050_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_mpu6050.c"
+    },
+    {
+      "name": "test_sh1106_init_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_init.c"
+    },
+    {
+      "name": "test_sh1106_init_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_init.c"
+    },
+    {
+      "name": "test_sh1106_init_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_init.c"
+    },
+    {
+      "name": "test_sh1106_page_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_page_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_page_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_page_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_page_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_page_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_page_07",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_page_08",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_page_09",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_page.c"
+    },
+    {
+      "name": "test_sh1106_enable_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_enable.c"
+    },
+    {
+      "name": "test_sh1106_enable_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_enable.c"
+    },
+    {
+      "name": "test_sh1106_enable_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sh1106_enable.c"
+    },
+    {
+      "name": "test_ride_events_init_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_init.c"
+    },
+    {
+      "name": "test_ride_events_init_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_init.c"
+    },
+    {
+      "name": "test_ride_events_init_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_init.c"
+    },
+    {
+      "name": "test_ride_events_sample_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_07",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_08",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_09",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_10",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_11",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_12",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_13",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_14",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_15",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_16",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_17",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_18",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_19",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_20",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_21",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_22",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_sample_23",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_sample.c"
+    },
+    {
+      "name": "test_ride_events_update_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_update.c"
+    },
+    {
+      "name": "test_ride_events_update_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_update.c"
+    },
+    {
+      "name": "test_ride_events_update_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_update.c"
+    },
+    {
+      "name": "test_ride_events_update_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_update.c"
+    },
+    {
+      "name": "test_ride_events_update_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_update.c"
+    },
+    {
+      "name": "test_ride_events_update_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_update.c"
+    },
+    {
+      "name": "test_ride_events_update_07",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_update.c"
+    },
+    {
+      "name": "test_ride_events_update_08",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_update.c"
+    },
+    {
+      "name": "test_ride_events_message_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_message.c"
+    },
+    {
+      "name": "test_ride_events_message_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_message.c"
+    },
+    {
+      "name": "test_ride_events_message_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_message.c"
+    },
+    {
+      "name": "test_ride_events_message_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_message.c"
+    },
+    {
+      "name": "test_ride_events_message_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_message.c"
+    },
+    {
+      "name": "test_ride_events_message_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_ride_events_message.c"
+    },
+    {
+      "name": "test_display_process_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_07",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_08",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_09",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_10",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_11",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_process_02",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Expected 0 Was 8",
+      "test_file": "test_cov_function_display_process.c"
+    },
+    {
+      "name": "test_display_set_event_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_set_event.c"
+    },
+    {
+      "name": "test_display_set_event_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_set_event.c"
+    },
+    {
+      "name": "test_display_set_event_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_set_event.c"
+    },
+    {
+      "name": "test_display_set_event_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_set_event.c"
+    },
+    {
+      "name": "test_display_set_event_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_set_event.c"
+    },
+    {
+      "name": "test_display_set_event_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_set_event.c"
+    },
+    {
+      "name": "test_display_set_event_07",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_set_event.c"
+    },
+    {
+      "name": "test_display_is_splash_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_is_splash.c"
+    },
+    {
+      "name": "test_display_is_splash_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_is_splash.c"
+    },
+    {
+      "name": "test_display_is_splash_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_display_is_splash.c"
+    },
+    {
+      "name": "test_display_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_display.c"
+    },
+    {
+      "name": "test_display_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_display.c"
+    },
+    {
+      "name": "test_display_02",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Element 0 Expected 14 Was 0",
+      "test_file": "test_cov_module_display.c"
+    },
+    {
+      "name": "test_sensors_init_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sensors_init.c"
+    },
+    {
+      "name": "test_sensors_process_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sensors_process.c"
+    },
+    {
+      "name": "test_sensors_process_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sensors_process.c"
+    },
+    {
+      "name": "test_sensors_process_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sensors_process.c"
+    },
+    {
+      "name": "test_sensors_process_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sensors_process.c"
+    },
+    {
+      "name": "test_sensors_process_01",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Expected 0 Was 1",
+      "test_file": "test_cov_function_sensors_process.c"
+    },
+    {
+      "name": "test_sensors_process_06",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Expected 0 Was 1",
+      "test_file": "test_cov_function_sensors_process.c"
+    },
+    {
+      "name": "test_sensors_snapshot_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_sensors_snapshot.c"
+    },
+    {
+      "name": "test_sensors_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_sensors.c"
+    },
+    {
+      "name": "test_sensors_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_sensors.c"
+    },
+    {
+      "name": "test_sensors_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_sensors.c"
+    },
+    {
+      "name": "test_sensors_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_sensors.c"
+    },
+    {
+      "name": "test_sensors_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_sensors.c"
+    },
+    {
+      "name": "test_sensors_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_sensors.c"
+    },
+    {
+      "name": "test_telemetry_process_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_05",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_06",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_07",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_08",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_09",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_10",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_11",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_process_12",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_function_telemetry_process.c"
+    },
+    {
+      "name": "test_telemetry_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_telemetry.c"
+    },
+    {
+      "name": "test_telemetry_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_telemetry.c"
+    },
+    {
+      "name": "test_telemetry_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_telemetry.c"
+    },
+    {
+      "name": "test_telemetry_04",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_module_telemetry.c"
+    },
+    {
+      "name": "test_logger_write_01",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Test case crashed",
+      "test_file": "test_cov_function_logger_write.c"
+    },
+    {
+      "name": "test_logger_write_02",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Test case crashed",
+      "test_file": "test_cov_function_logger_write.c"
+    },
+    {
+      "name": "test_logger_write_03",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Test case crashed",
+      "test_file": "test_cov_function_logger_write.c"
+    },
+    {
+      "name": "test_logger_write_04",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Test case crashed",
+      "test_file": "test_cov_function_logger_write.c"
+    },
+    {
+      "name": "test_logger_write_05",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Test case crashed",
+      "test_file": "test_cov_function_logger_write.c"
+    },
+    {
+      "name": "test_logger_write_06",
+      "outcome": "fail",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "Test case crashed",
+      "test_file": "test_cov_function_logger_write.c"
+    },
+    {
+      "name": "test_board_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_header_board.c"
+    },
+    {
+      "name": "test_board_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_header_board.c"
+    },
+    {
+      "name": "test_helpers_01",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_header_helpers.c"
+    },
+    {
+      "name": "test_helpers_02",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_header_helpers.c"
+    },
+    {
+      "name": "test_helpers_03",
+      "outcome": "pass",
+      "requirement_ids": [
+        "(unattributed)"
+      ],
+      "criterion_ids": [],
+      "message": "",
+      "test_file": "test_cov_header_helpers.c"
+    }
+  ],
+  "compiled_source_evidence": "compiler dependency files; unknown when unavailable"
+}

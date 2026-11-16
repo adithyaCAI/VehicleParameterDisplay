@@ -1,0 +1,60 @@
+sequenceDiagram
+  participant Main as STM32 main
+  participant App as app_start
+  participant IO as platform_io
+  participant Sensors as Sensor service
+  participant I2C as I2C1 devices
+  participant Ride as Ride event module
+  participant Display as Display service
+  participant Telemetry as Telemetry services
+  participant UART as USART2 console
+
+  Main->>App: app_start
+  App->>Telemetry: firmgen_telemetry_start
+  App->>IO: platform_io_init
+  alt I/O initialization fails
+    IO-->>App: false
+    App-->>Main: return
+  else I/O initialization succeeds
+    IO-->>App: true
+    App->>IO: platform_io_scan
+    IO->>I2C: scan device addresses
+    IO->>UART: log bus scan results
+    App->>Display: display_init
+    Display->>I2C: initialize and clear SH1106
+    App->>Sensors: sensors_init
+    Sensors->>I2C: initialize MPU6050 at 0x68
+    App->>Ride: ride_events_init
+    loop app_start cooperative loop
+      App->>Telemetry: firmgen_telemetry_poll
+      App->>IO: platform_io_now_ms and platform_io_poll
+      App->>Sensors: sensors_process
+      Sensors->>I2C: scheduled MPU6050 reads
+      Sensors->>IO: scheduled DHT22 frame read on PB4
+      App->>Sensors: sensors_snapshot
+      alt Display ready and splash finished
+        alt Acceleration is valid
+          App->>Ride: ride_events_sample with acceleration
+        else Acceleration is invalid
+          App->>Ride: ride_events_sample with NULL
+        end
+        App->>Ride: ride_events_update
+      end
+      opt Ride event changed
+        App->>Display: display_set_event
+        App->>IO: log event change
+      end
+      App->>IO: platform_io_led
+      opt LED state changed
+        App->>IO: log LED command
+      end
+      opt Display initialized
+        App->>Display: display_process with readings
+        Display->>I2C: update display pages when due
+      end
+      App->>Telemetry: telemetry_process
+      Telemetry->>IO: queue CSV record when due
+      IO->>UART: transmit queued bytes
+      Telemetry->>UART: send boot/runtime telemetry when due
+    end
+  end

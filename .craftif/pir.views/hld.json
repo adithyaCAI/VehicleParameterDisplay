@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0.0",
+  "view": "hld",
+  "revision": "7c96595f4e37ab78823acf279831f536",
+  "graph_version": 8,
+  "generated_at_ms": 1794839317332,
+  "mermaid": "flowchart TD\n  subgraph Hardware[\"Connected hardware\"]\n    imu[\"Accelerometer<br/>MPU6050 at 0x68\"]\n    dht[\"Temperature and humidity sensor<br/>DHT22 data on PB4\"]\n    oled[\"Display<br/>SH1106 at 0x3C\"]\n    i2c[\"I2C1 bus<br/>PB8 SCL, PB9 SDA\"]\n    led[\"Indicator LED<br/>PA5\"]\n    uart[\"UART device<br/>USART2 TX PA2, RX PA3\"]\n    console[\"Console and telemetry sink<br/>UART output\"]\n  end\n\n  subgraph Firmware[\"Firmware owners\"]\n    app[\"Application orchestration<br/>firmware/app/app.c\"]\n    sensors[\"Sensor service<br/>firmware/services/sensors.c\"]\n    mpu_drv[\"MPU6050 driver<br/>firmware/drivers/mpu6050/mpu6050.c\"]\n    dht_drv[\"DHT22 decoder<br/>firmware/drivers/dht22/dht22.c\"]\n    ride[\"Ride event detection<br/>firmware/modules/ride_events.c\"]\n    display[\"Dashboard and splash service<br/>firmware/services/display.c\"]\n    sh_drv[\"SH1106 driver<br/>firmware/drivers/sh1106/sh1106.c\"]\n    telemetry[\"CSV telemetry service<br/>firmware/services/telemetry.c\"]\n    platform[\"STM32 I/O owner<br/>firmware/platforms/stm32/platform_io.c\"]\n    fgtelemetry[\"Boot and runtime telemetry<br/>firmware/telemetry/firmgen_telemetry.c\"]\n  end\n\n  app -->|sensors_init / sensors_process| sensors\n  app -->|ride_events_sample / update| ride\n  app -->|display_init / set_event / process| display\n  app -->|telemetry_process| telemetry\n  app -->|firmgen_telemetry_start / poll| fgtelemetry\n  app -->|platform_io_init / scan / poll / led| platform\n  sensors -->|mpu6050_init / read| mpu_drv\n  mpu_drv -->|platform_io_read / write| platform\n  sensors -->|DHT frame decode| dht_drv\n  sensors -->|platform_io_dht_frame| platform\n  display -->|sh1106_init / page / enable| sh_drv\n  sh_drv -->|platform_io_transmit| platform\n  telemetry -->|platform_io_telemetry| platform\n  platform -->|HAL_I2C_* on I2C1| i2c\n  i2c -->|I2C register and data transfers| imu\n  i2c -->|I2C display commands and pixels| oled\n  platform -->|GPIO read/write| dht\n  platform -->|HAL_GPIO_WritePin via platform_io_led| led\n  platform -->|HAL_UART_Transmit / LL_USART_TransmitData8| uart\n  platform -->|firmgen_uart_handle| fgtelemetry\n  fgtelemetry -->|HAL_UART_Transmit| uart\n  uart -->|diagnostic logs and telemetry bytes| console",
+  "title": "High-Level Design",
+  "node_notes": {
+    "console": "This is the UART output sink for boot/status logs and application telemetry. The platform I/O logger, queued CSV transmitter, and FirmGen telemetry all use USART2.",
+    "uart": "USART2 carries diagnostic logs and telemetry using PA2 for TX and PA3 for RX. platform_io.c initializes it at the configured baud rate and writes through HAL or LL USART operations.",
+    "sensors": "The sensor service schedules MPU6050 sampling and DHT22 reads, calibrates acceleration, and publishes a snapshot. Its timing and validation behavior are implemented in firmware/services/sensors.c.",
+    "telemetry": "The CSV telemetry service formats VPD1 records from the current sensor snapshot and event. It schedules records using APP_TELEMETRY_PERIOD_MS and queues them through platform_io_telemetry.",
+    "imu": "The MPU6050 supplies acceleration samples used for calibration and ride-event detection. Its configured address is 0x68, and the sensor service reaches it through the platform I2C read/write callbacks.",
+    "ride": "The ride-event module compares acceleration samples against configured thresholds and determines event and LED states. app_start submits samples and calls ride_events_update on eligible display-ready iterations.",
+    "led": "PA5 is the application indicator LED output. platform_io_led uses HAL_GPIO_WritePin, with the active-high board level supplied by board_led_level.",
+    "sh_drv": "The SH1106 driver forms initialization, page-addressing, and pixel-data packets. The display service passes platform_io_transmit as its send callback for the I2C display.",
+    "fgtelemetry": "FirmGen telemetry captures boot information and periodically emits runtime data using the UART handle provided by platform_io.c. app_start starts and polls it, and its UART output uses HAL_UART_Transmit.",
+    "display": "The display service manages initialization, splash timing, dashboard rendering, and page refreshes. It uses the SH1106 driver and the platform I/O transmit callback.",
+    "mpu_drv": "The MPU6050 driver verifies identity, configures the accelerometer, and converts register data to g values. It obtains register transfers through the I/O callbacks supplied by the sensor service.",
+    "dht_drv": "The DHT22 driver checks the five-byte frame checksum and converts the data to temperature and humidity. The sensor service calls dht22_decode after the platform layer captures a frame.",
+    "oled": "The SH1106 is the dashboard and startup-logo display at I2C address 0x3C. The display service sends its commands and pixel pages through the SH1106 driver and I2C transport.",
+    "app": "app_start coordinates initialization and the cooperative runtime loop. It invokes sensor, ride-event, display, platform I/O, and telemetry APIs in firmware/app/app.c.",
+    "i2c": "I2C1 connects the MPU6050 and SH1106 using PB8 for SCL and PB9 for SDA. These pin assignments and the HAL I2C initialization and transfers are defined in app_config.h and platform_io.c.",
+    "dht": "The DHT22 supplies temperature and humidity readings through its single-wire data connection on PB4. The platform I/O layer drives and samples this pin to capture frames.",
+    "platform": "This STM32-specific module owns I2C1, USART2, TIM3 timing, DHT22 pin sampling, and the PA5 LED operation. Its HAL/LL implementations and configured pin muxes are in firmware/platforms/stm32/platform_io.c."
+  },
+  "authored_by_model": true
+}

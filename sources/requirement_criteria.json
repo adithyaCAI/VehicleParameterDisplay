@@ -1,0 +1,1194 @@
+{
+  "job_id": "9644482e-e79d-4a82-94a5-216362661baf",
+  "document_id": "088ac216-376b-4826-bb32-499c6c35609a",
+  "saved_at": "2026-11-16T13:02:57.720Z",
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Board & Firmware Configuration",
+      "criteria": [
+        {
+          "requirement_id": "HW-001",
+          "verifiability": "hardware",
+          "criterion": "The firmware image executes on a NUCLEO-G070RB board.",
+          "observable": "The board identity and the program counter reported by a connected debug probe",
+          "observable_kind": "signal",
+          "preconditions": [
+            "A NUCLEO-G070RB board and a debug probe are available.",
+            "The firmware image has been built and programmed onto the board."
+          ],
+          "procedure": [
+            "Confirm the board is identified as NUCLEO-G070RB.",
+            "Connect the debug probe and resume execution of the programmed firmware.",
+            "Sample the program counter twice while the MCU is running."
+          ],
+          "expected": "The board is a NUCLEO-G070RB and the program counter advances between samples.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "HW-003",
+          "verifiability": "inspection",
+          "criterion": "The default definition of LOGO_DISPLAY_MS in config.h is 2000, and the logo display timing uses that macro.",
+          "observable": "The LOGO_DISPLAY_MS definition in config.h and the logo timing code's reference to LOGO_DISPLAY_MS",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect config.h for the default definition of LOGO_DISPLAY_MS.",
+            "Inspect the logo display timing code for use of LOGO_DISPLAY_MS."
+          ],
+          "expected": "The default is 2000 ms and the logo display timing uses LOGO_DISPLAY_MS rather than a separate fixed duration.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "HW-004",
+          "verifiability": "inspection",
+          "criterion": "config.h exposes configurable high-temperature and high-humidity thresholds for both demo and in-vehicle settings.",
+          "observable": "The climate-threshold configuration entries in config.h",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect config.h for configurable high-temperature and high-humidity thresholds.",
+            "Read the configured values for demo and in-vehicle settings."
+          ],
+          "expected": "Demo thresholds are 32 degC and 75%; in-vehicle thresholds are 45 degC and 80%.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "HW-004",
+          "verifiability": "inspection",
+          "criterion": "config.h exposes configurable Z, X, +Y, and -Y ride-event thresholds for both demo and in-vehicle settings.",
+          "observable": "The ride-event axis-threshold configuration entries in config.h",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect config.h for configurable Z, X, +Y, and -Y thresholds.",
+            "Read the configured values for demo and in-vehicle settings."
+          ],
+          "expected": "Demo thresholds are Z = 0.30 g, X = 0.25 g, +Y = +0.25 g, and -Y = -0.25 g; each in-vehicle threshold is in the range 0.4–0.5 g, with the -Y threshold retaining its negative direction.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "HW-004",
+          "verifiability": "inspection",
+          "criterion": "config.h exposes configurable sudden-window and event-display-time parameters with the specified durations.",
+          "observable": "The sudden-window and event-display-time configuration entries in config.h",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect config.h for the sudden-window and event-display-time parameters.",
+            "Read their configured values."
+          ],
+          "expected": "The sudden window is 100 ms and the event display time is 2 s.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-019",
+          "verifiability": "inspection",
+          "criterion": "The configured high-temperature threshold used by the firmware is 32 degC.",
+          "observable": "The high-temperature threshold value in the firmware's shared configuration",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the firmware configuration for the high-temperature threshold.",
+            "Confirm the value used by the firmware."
+          ],
+          "expected": "32 degC.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-020",
+          "verifiability": "inspection",
+          "criterion": "The configured high-humidity threshold used by the firmware is 75%.",
+          "observable": "The high-humidity threshold value in the firmware's shared configuration",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the firmware configuration for the high-humidity threshold.",
+            "Confirm the value used by the firmware."
+          ],
+          "expected": "75%.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        }
+      ]
+    },
+    {
+      "id": "cat-2",
+      "name": "Sensor Acquisition & I2C Bus",
+      "criteria": [
+        {
+          "requirement_id": "IF-001",
+          "verifiability": "hardware",
+          "criterion": "A DHT22 acquisition uses PB4 and returns temperature and humidity matching the sensor's response.",
+          "observable": "PB4 signal during acquisition and the firmware's returned temperature and humidity values",
+          "observable_kind": "signal",
+          "preconditions": [
+            "A DHT22 is connected to PB4 and can provide a valid response."
+          ],
+          "procedure": [
+            "Trigger a DHT22 acquisition.",
+            "Observe the acquisition signal on PB4 and record the sensor response.",
+            "Compare the firmware's returned temperature and humidity with the response."
+          ],
+          "expected": "The acquisition signal is present on PB4, and both returned readings match the DHT22 response.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-002",
+          "verifiability": "inspection",
+          "criterion": "The I2C configuration assigns PB8 to SCL and PB9 to SDA for the bus used by both the MPU6050 and OLED.",
+          "observable": "I2C pin configuration and the MPU6050 and OLED bus assignment in the source or build configuration",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the I2C pin configuration.",
+            "Inspect the MPU6050 and OLED bus assignments."
+          ],
+          "expected": "PB8 is configured as SCL, PB9 as SDA, and both devices are assigned to that same I2C bus.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-007",
+          "verifiability": "host",
+          "criterion": "Concurrent MPU6050 and OLED requests produce no overlapping I2C transactions, and both operations complete with their own expected results.",
+          "observable": "Fake I2C transaction trace and the results returned by each operation",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable shared-bus access logic can be called with fake I2C callbacks.",
+            "MPU6050 and OLED operations use the same bus instance."
+          ],
+          "procedure": [
+            "Start MPU6050 and OLED operations concurrently using distinct fake responses.",
+            "Record transaction entry and exit in the fake I2C callbacks.",
+            "Check the maximum number of simultaneously active transactions and each operation's result."
+          ],
+          "expected": "The maximum number of active transactions is 1; both operations complete and each receives its own expected response.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-002",
+          "verifiability": "host",
+          "criterion": "DHT22 initialization and MPU6050 zeroing complete while the splash is active, and the splash ends at its configured deadline.",
+          "observable": "Fake-clock timestamps for initialization, zeroing, and splash completion",
+          "observable_kind": "state",
+          "preconditions": [
+            "The splash is active in the portable application flow.",
+            "The configured splash duration and fake-clock hooks are available."
+          ],
+          "procedure": [
+            "Start the splash with a fake clock and fake sensor operations.",
+            "Advance time through the configured splash duration.",
+            "Record when DHT22 initialization, MPU6050 zeroing, and splash completion occur."
+          ],
+          "expected": "Both sensor operations complete after splash start and before splash completion; splash completion occurs at the configured duration, without an extension for sensor work.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-005",
+          "verifiability": "host",
+          "criterion": "The DHT22 read scheduler initiates consecutive reads 2000 ms apart.",
+          "observable": "Fake-clock timestamps of DHT22 read initiation",
+          "observable_kind": "state",
+          "preconditions": [
+            "The DHT22 is initialized in the portable application logic.",
+            "The scheduler can be run with a fake clock."
+          ],
+          "procedure": [
+            "Run the scheduler across at least three read periods using the fake clock.",
+            "Record each DHT22 read initiation time.",
+            "Calculate the difference between consecutive initiation times."
+          ],
+          "expected": "Each consecutive initiation time differs by 2000 ms.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-005",
+          "verifiability": "host",
+          "criterion": "A successful DHT22 read publishes its temperature and humidity in the corresponding Celsius and percent fields.",
+          "observable": "Published temperature and humidity fields after a fake successful DHT22 read",
+          "observable_kind": "state",
+          "preconditions": [
+            "The DHT22 read path can be supplied with fake sensor values."
+          ],
+          "procedure": [
+            "Supply a successful fake read containing 23.5 °C and 48% humidity.",
+            "Run the read-and-publish path.",
+            "Inspect the published temperature and humidity fields."
+          ],
+          "expected": "The temperature field is 23.5 °C and the humidity field is 48%.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-007",
+          "verifiability": "host",
+          "criterion": "The MPU6050 configuration selects the ±4 g accelerometer range.",
+          "observable": "Accelerometer configuration register value written by the MPU6050 driver",
+          "observable_kind": "state",
+          "preconditions": [
+            "The MPU6050 driver can be called with fake I2C register callbacks."
+          ],
+          "procedure": [
+            "Initialize the MPU6050 using the driver.",
+            "Capture the accelerometer configuration register write.",
+            "Decode the full-scale selection bits."
+          ],
+          "expected": "The full-scale selection is ±4 g (FS_SEL = 1).",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-007",
+          "verifiability": "host",
+          "criterion": "The MPU6050 sampling logic requests acceleration samples at 100 Hz.",
+          "observable": "Fake-clock timestamps of successive acceleration sample requests",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable MPU6050 sampling logic can be run with a fake clock and fake I2C callbacks.",
+            "The MPU6050 is initialized."
+          ],
+          "procedure": [
+            "Run the sampling logic through several sample periods with the fake clock.",
+            "Record successive acceleration sample request times."
+          ],
+          "expected": "Successive requests are separated by 10 ms (100 samples per second).",
+          "source": "derived",
+          "rationale": "The stated sample rate is 100 Hz, whose period is 1/100 second, or 10 ms; the fake clock isolates the sampling policy from MCU scheduling jitter.",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-007",
+          "verifiability": "host",
+          "criterion": "Each acceleration axis is converted from raw MPU6050 counts to g using the configured ±4 g scale.",
+          "observable": "Converted X, Y, and Z acceleration values from known raw sample counts",
+          "observable_kind": "state",
+          "preconditions": [
+            "The MPU6050 conversion logic can be called with known raw samples.",
+            "The ±4 g range is configured."
+          ],
+          "procedure": [
+            "Provide raw axis counts corresponding to 1 g at the ±4 g setting (8192 counts on one axis and zero on the others).",
+            "Run the acceleration conversion.",
+            "Inspect the converted X, Y, and Z values."
+          ],
+          "expected": "The axis supplied with 8192 counts is 1.0 g, and the other two axes are 0.0 g, subject to the implementation's numeric representation precision.",
+          "source": "derived",
+          "rationale": "The standard MPU6050 sensitivity at the ±4 g setting is 8192 LSB/g; checking this conversion verifies that raw readings are presented in g rather than counts.",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-008",
+          "verifiability": "host",
+          "criterion": "After one second of flat-and-still calibration samples, the calibrated acceleration is X = 0 g, Y = 0 g, and Z = 1 g.",
+          "observable": "Calibrated X, Y, and Z acceleration values after the calibration routine completes",
+          "observable_kind": "state",
+          "preconditions": [
+            "The calibration routine can be called with injected acceleration samples and a fake clock.",
+            "Injected samples represent a flat, still board for one second, with gravity on Z."
+          ],
+          "procedure": [
+            "Start calibration and provide flat-and-still samples for one second.",
+            "Allow the calibration routine to complete.",
+            "Read the calibrated X, Y, and Z values."
+          ],
+          "expected": "X = 0 g, Y = 0 g, and Z = 1 g.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-008",
+          "verifiability": "host",
+          "criterion": "The first sensor screen becomes the active screen when the configured splash completes, and it presents the calibrated X, Y, and Z values as valid.",
+          "observable": "Application screen state and displayed sensor values and validity state after splash completion",
+          "observable_kind": "state",
+          "preconditions": [
+            "The application flow can be run with a fake clock and fake calibrated MPU6050 data.",
+            "Calibration has completed during the splash."
+          ],
+          "procedure": [
+            "Run the application through splash completion with valid calibrated values X = 0 g, Y = 0 g, Z = 1 g.",
+            "Inspect the active screen and its sensor values immediately after the splash transition."
+          ],
+          "expected": "The active screen is the first sensor screen, and it presents valid values X = 0 g, Y = 0 g, Z = 1 g.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-009",
+          "verifiability": "host",
+          "criterion": "The displayed acceleration values are assigned to lateral X, longitudinal Y, and vertical Z axes.",
+          "observable": "Axis labels or axis fields consumed by the display path after supplying distinct X, Y, and Z values",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable display-data mapping can be called with distinct acceleration values."
+          ],
+          "procedure": [
+            "Supply distinct X, Y, and Z acceleration values to the display mapping.",
+            "Inspect the values assigned to the lateral, longitudinal, and vertical display fields."
+          ],
+          "expected": "Lateral uses X, longitudinal uses Y, and vertical uses Z.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-009",
+          "verifiability": "host",
+          "criterion": "The event-processing inputs use X for lateral cornering, Y for longitudinal acceleration/braking, and Z for vertical bumps.",
+          "observable": "Axis values delivered to the event-processing logic after supplying distinct X, Y, and Z values",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable event-input mapping can be called with distinct acceleration values."
+          ],
+          "procedure": [
+            "Supply distinct X, Y, and Z acceleration values to the event-input mapping.",
+            "Inspect the values delivered to the lateral, longitudinal, and vertical event inputs."
+          ],
+          "expected": "Lateral event input uses X, longitudinal event input uses Y, and vertical event input uses Z.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "DIAG-001",
+          "verifiability": "host",
+          "criterion": "A failed DHT22 or MPU6050 acquisition is marked invalid and is not presented as a valid displayed measurement.",
+          "observable": "Acquisition validity state and displayed measurement state after injecting each sensor failure",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable acquisition and display logic can be exercised with fake sensor callbacks that report failure."
+          ],
+          "procedure": [
+            "Inject a failed DHT22 acquisition and inspect its validity and display state.",
+            "Inject a failed MPU6050 acquisition and inspect its validity and display state."
+          ],
+          "expected": "For each failed acquisition, the result is invalid and is not presented as a valid measurement.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "DIAG-001",
+          "verifiability": "host",
+          "criterion": "A failed DHT22 or MPU6050 acquisition does not cause an event to be triggered from that failed result.",
+          "observable": "Event-detection inputs and event outputs after injecting each sensor failure",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable acquisition-to-event path can be exercised with fake sensor callbacks that report failure."
+          ],
+          "procedure": [
+            "Inject a failed DHT22 acquisition and run event processing.",
+            "Inject a failed MPU6050 acquisition and run event processing.",
+            "Inspect the event inputs and emitted event outputs for each case."
+          ],
+          "expected": "Failed-result values are excluded from event-detection inputs, and neither injected failure triggers an event from those values.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        }
+      ]
+    },
+    {
+      "id": "cat-3",
+      "name": "OLED Display & Startup UI",
+      "criteria": [
+        {
+          "requirement_id": "IF-003",
+          "verifiability": "inspection",
+          "criterion": "The display configuration selects the SH1106 driver and assigns I2C SCL to PB8 and SDA to PB9 on the bus also used by the MPU6050.",
+          "observable": "Display-driver selection and I2C pin/device assignments in the firmware configuration and initialization code",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the display driver selection and I2C initialization.",
+            "Inspect the MPU6050 bus assignment."
+          ],
+          "expected": "SH1106 selected; SCL=PB8; SDA=PB9; the display and MPU6050 use the same I2C bus.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-003",
+          "verifiability": "inspection",
+          "criterion": "The display component specification identifies a 1.3-inch OLED.",
+          "observable": "OLED entry in the project parts list or display specification",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the project parts list or display specification."
+          ],
+          "expected": "Display diagonal is 1.3 in.",
+          "source": "derived",
+          "rationale": "The requirement and its expected value specify the physical display diagonal, which can be checked against the component specification but not established by a firmware unit test.",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "HW-002",
+          "verifiability": "inspection",
+          "criterion": "The logo.h asset declares a flash-resident 1-bit bitmap containing 1024 bytes in SH1106 page order.",
+          "observable": "Bitmap declaration, storage qualifier, and array size in logo.h",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect logo.h and count or evaluate the declared bitmap array length."
+          ],
+          "expected": "A const/flash-resident bitmap array with 8 × 128 = 1024 bytes, each byte representing one page column.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "HW-002",
+          "verifiability": "inspection",
+          "criterion": "The logo asset definition specifies that each byte's least-significant bit maps to the top row of its 8-pixel page.",
+          "observable": "Bitmap-format documentation or bit-mapping definition adjacent to the logo asset",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the logo format definition or documentation in logo.h."
+          ],
+          "expected": "Bit 0 maps to the top row, and the asset dimensions are 128 columns by 8 pages (128×64 pixels).",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-001",
+          "verifiability": "inspection",
+          "criterion": "The splash rendering code places the 124×26 logo at coordinates that center it within a 128×64 display.",
+          "observable": "Logo draw call dimensions and x/y coordinates in the splash rendering code",
+          "observable_kind": "artifact",
+          "preconditions": [
+            "The splash rendering implementation is present."
+          ],
+          "procedure": [
+            "Inspect the splash draw call and its coordinate calculations."
+          ],
+          "expected": "Logo dimensions are 124×26 pixels and its top-left coordinate is x=2, y=19.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-001",
+          "verifiability": "inspection",
+          "criterion": "The splash renderer clears the display to black and draws the logo as white pixels without scaling or inversion.",
+          "observable": "Splash framebuffer clear and logo pixel-rendering operations",
+          "observable_kind": "artifact",
+          "preconditions": [
+            "The splash rendering implementation is present."
+          ],
+          "procedure": [
+            "Inspect the framebuffer clear value and the logo pixel-rendering path."
+          ],
+          "expected": "Background and border pixels are black; set logo bits render white; source bitmap coordinates map one-to-one to display pixels.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-003",
+          "verifiability": "inspection",
+          "criterion": "The splash elapsed-time check uses HAL_GetTick and contains no blocking delay call.",
+          "observable": "Splash timing code and delay calls in the splash path",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the splash timing implementation and its call path."
+          ],
+          "expected": "Elapsed time is determined using HAL_GetTick; no blocking delay is used to hold the splash.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-004",
+          "verifiability": "host",
+          "criterion": "While the splash state is active, processing an alert does not add an alert to the rendered display and does not command the LED to blink.",
+          "observable": "Fake display output and fake LED command history after exercising the splash-state logic",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable splash/application logic can be called with fake display and LED interfaces."
+          ],
+          "procedure": [
+            "Enter the splash state.",
+            "Inject an alert and advance the application logic through the splash interval.",
+            "Inspect the fake display output and LED command history."
+          ],
+          "expected": "No alert message is rendered, and no blink command or blinking LED state is produced during the splash interval.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-004",
+          "verifiability": "host",
+          "criterion": "The SH1106 driver adds two columns to the starting column for writes that render both the logo and a non-logo screen.",
+          "observable": "Captured column-address command bytes from a fake SH1106 I/O interface",
+          "observable_kind": "state",
+          "preconditions": [
+            "The SH1106 driver can be called with a fake I/O interface."
+          ],
+          "procedure": [
+            "Render the logo through the driver and capture its column-address command.",
+            "Render a non-logo screen through the driver and capture its column-address command."
+          ],
+          "expected": "For each rendered screen, the driver uses visible column c at SH1106 RAM column c+2; the offset is applied exactly once.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-012",
+          "verifiability": "host",
+          "criterion": "When an event is processed, the next rendered screen contains its message and retains the current temperature and humidity values.",
+          "observable": "Rendered display text or framebuffer from the portable screen-rendering logic",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable event and display logic can be called with temperature and humidity values."
+          ],
+          "procedure": [
+            "Set known temperature and humidity values.",
+            "Process an event with a known message.",
+            "Render the screen and inspect its text or framebuffer."
+          ],
+          "expected": "The event message and both previously supplied temperature and humidity values are present in the rendered screen.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-012",
+          "verifiability": "host",
+          "criterion": "The event message is included in the first display update generated after the event is processed.",
+          "observable": "Display update sequence and rendered contents from the portable application logic",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable application logic exposes display updates to a fake display interface."
+          ],
+          "procedure": [
+            "Set known temperature and humidity values.",
+            "Process an event and capture the first subsequent display update."
+          ],
+          "expected": "The first display update after event processing contains the event message.",
+          "source": "derived",
+          "rationale": "The statement says the message appears immediately, but gives no numeric latency bound; this criterion interprets immediate as appearing on the first display update after event processing rather than inventing a time threshold.",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-016",
+          "verifiability": "host",
+          "criterion": "After the splash transition, the rendered screen is titled Vehicle Parameters and includes DHT22 temperature in degC, DHT22 humidity in %, and X, Y, and Z acceleration values with g shown for Z.",
+          "observable": "Rendered screen text or framebuffer from the portable screen-rendering logic",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable renderer can be called with known DHT22 and MPU6050 readings."
+          ],
+          "procedure": [
+            "Provide distinct known temperature, humidity, and X/Y/Z values.",
+            "Render the post-splash sensor screen.",
+            "Inspect the title, values, and unit text."
+          ],
+          "expected": "The screen contains the title Vehicle Parameters, the supplied temperature with degC, the supplied humidity with %, the supplied X/Y/Z values, and g for Z.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-016",
+          "verifiability": "host",
+          "criterion": "The first sensor screen following the splash renders valid zero values for X, Y, and Z when the initial acceleration values are zero.",
+          "observable": "Rendered X/Y/Z fields from the portable startup and screen-rendering logic",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable startup logic can be driven through splash completion with initial acceleration values set to zero."
+          ],
+          "procedure": [
+            "Initialize X, Y, and Z acceleration values to zero.",
+            "Advance the startup logic past the splash.",
+            "Inspect the first sensor screen."
+          ],
+          "expected": "The first sensor screen displays valid zero readings for X, Y, and Z.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-006",
+          "verifiability": "hardware",
+          "criterion": "The SH1106 interface is initialized before the first logo display write, and the logo becomes visible within 100 ms of power-up.",
+          "observable": "I2C bus trace showing initialization and first logo write, plus the OLED's visible logo onset measured from power-up",
+          "observable_kind": "signal",
+          "preconditions": [
+            "NUCLEO-G070RB and the SH1106 OLED are connected and powered.",
+            "A bus analyzer and a means to measure power-up-to-visible-logo time are available."
+          ],
+          "procedure": [
+            "Capture the I2C bus and power-up timing while powering the board.",
+            "Identify the SH1106 initialization sequence and first logo write.",
+            "Measure the time from power-up to visible logo."
+          ],
+          "expected": "Initialization precedes the first logo write, and visible logo onset is no later than 100 ms after power-up.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-018",
+          "verifiability": "hardware",
+          "criterion": "On power-up, the logo becomes visible within 100 ms, remains the displayed content for 1.9–2.1 seconds, and precedes any sensor data or heading.",
+          "observable": "OLED output recorded from power-up through splash completion, with timestamps",
+          "observable_kind": "signal",
+          "preconditions": [
+            "NUCLEO-G070RB and the SH1106 OLED are connected and powered.",
+            "A recording or instrument can observe OLED output and timestamp power-up."
+          ],
+          "procedure": [
+            "Power up the board while recording the OLED output and timing.",
+            "Measure logo onset and duration.",
+            "Check the display contents from power-up until the logo disappears."
+          ],
+          "expected": "Logo onset is at or before 100 ms; logo duration is 1.9–2.1 s; no sensor data or heading appears before the logo.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-018",
+          "verifiability": "hardware",
+          "criterion": "After splash completion, the OLED changes to the Vehicle Parameters screen, and resetting during normal operation causes the logo splash to play again.",
+          "observable": "OLED output recorded across splash completion and across a reset during normal operation",
+          "observable_kind": "signal",
+          "preconditions": [
+            "NUCLEO-G070RB and the SH1106 OLED are connected and powered."
+          ],
+          "procedure": [
+            "Power up and observe the screen after the splash ends.",
+            "Allow the Vehicle Parameters screen to appear, then reset the board.",
+            "Observe the OLED output after reset."
+          ],
+          "expected": "The post-splash screen is Vehicle Parameters; after reset, the logo is displayed again before the normal screen.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-021",
+          "verifiability": "host",
+          "criterion": "The Vehicle Parameters renderer labels the acceleration readings exactly X:, Y:, and Z:, and appends the exact suffix ' g' to the Z value.",
+          "observable": "Rendered screen text or framebuffer from the portable Vehicle Parameters renderer",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable Vehicle Parameters renderer can be called with known acceleration values."
+          ],
+          "procedure": [
+            "Render the Vehicle Parameters screen with distinct X, Y, and Z values.",
+            "Inspect the rendered labels and Z-value suffix."
+          ],
+          "expected": "The acceleration labels are exactly X:, Y:, and Z:, and the Z value is followed by ' g'.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        }
+      ]
+    },
+    {
+      "id": "cat-4",
+      "name": "Ride Event Detection & LED Alerts",
+      "criteria": [
+        {
+          "requirement_id": "FR-006",
+          "verifiability": "hardware",
+          "criterion": "When the displayed temperature is greater than its configured high limit, the OLED shows an exclamation mark adjacent to the temperature value.",
+          "observable": "Temperature text and adjacent marker on the OLED",
+          "observable_kind": "state",
+          "preconditions": [
+            "Temperature has been read.",
+            "The OLED is initialized and displaying the temperature."
+          ],
+          "procedure": [
+            "In demo mode, set the temperature above 32 °C and observe the OLED.",
+            "In in-vehicle mode, set the temperature above 45 °C and observe the OLED."
+          ],
+          "expected": "In each mode, the temperature value is displayed with an adjacent \"!\" while it is above that mode's configured limit.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-006",
+          "verifiability": "hardware",
+          "criterion": "When the displayed humidity is greater than its configured high limit, the OLED shows an exclamation mark adjacent to the humidity value.",
+          "observable": "Humidity text and adjacent marker on the OLED",
+          "observable_kind": "state",
+          "preconditions": [
+            "Humidity has been read.",
+            "The OLED is initialized and displaying the humidity."
+          ],
+          "procedure": [
+            "In demo mode, set the humidity above 75% and observe the OLED.",
+            "In in-vehicle mode, set the humidity above 80% and observe the OLED."
+          ],
+          "expected": "In each mode, the humidity value is displayed with an adjacent \"!\" while it is above that mode's configured limit.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-010",
+          "verifiability": "host",
+          "criterion": "A change meeting the associated event threshold and arriving exactly 100 ms after the baseline sample is detected as an event.",
+          "observable": "Event-detection function result or event state after processing the sample pair",
+          "observable_kind": "state",
+          "preconditions": [
+            "The event detector is callable with injected acceleration samples and timestamps.",
+            "The associated event threshold is configured."
+          ],
+          "procedure": [
+            "Provide a baseline acceleration sample at time t.",
+            "Provide a sample with the associated-axis change at least equal to the configured threshold at t + 100 ms.",
+            "Read the event-detection result or event state."
+          ],
+          "expected": "The qualifying event is detected.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-010",
+          "verifiability": "host",
+          "criterion": "A change meeting the associated event threshold but arriving more than 100 ms after the baseline sample is not detected as a change within the configured sudden-change window.",
+          "observable": "Event-detection function result or event state after processing the sample pair",
+          "observable_kind": "state",
+          "preconditions": [
+            "The event detector is callable with injected acceleration samples and timestamps.",
+            "The associated event threshold is configured."
+          ],
+          "procedure": [
+            "Provide a baseline acceleration sample at time t.",
+            "Provide a sample with the associated-axis change at least equal to the configured threshold at a time greater than t + 100 ms.",
+            "Read the event-detection result or event state."
+          ],
+          "expected": "The sample pair does not trigger detection based on the 100 ms window.",
+          "source": "derived",
+          "rationale": "The verification method is Test and the acceptance criterion defines a 100 ms window; checking a just-outside-window sample distinguishes the stated bound from an unbounded threshold-crossing detector.",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-011",
+          "verifiability": "host",
+          "criterion": "A Z-axis change of at least 0.30 g identifies an Unseen SpeedBreaker in demo mode.",
+          "observable": "Identified event type returned by the event detector",
+          "observable_kind": "return_value",
+          "preconditions": [
+            "The detector is callable with injected, zeroed acceleration samples.",
+            "Demo thresholds are selected."
+          ],
+          "procedure": [
+            "Provide a zeroed baseline sample.",
+            "Within 100 ms, provide a sample whose Z-axis change is 0.30 g or greater.",
+            "Read the identified event type."
+          ],
+          "expected": "The identified event type is Unseen SpeedBreaker.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-011",
+          "verifiability": "host",
+          "criterion": "An X-axis change of at least 0.25 g identifies a Wide Turn in demo mode.",
+          "observable": "Identified event type returned by the event detector",
+          "observable_kind": "return_value",
+          "preconditions": [
+            "The detector is callable with injected, zeroed acceleration samples.",
+            "Demo thresholds are selected."
+          ],
+          "procedure": [
+            "Provide a zeroed baseline sample.",
+            "Within 100 ms, provide a sample whose X-axis change is 0.25 g or greater.",
+            "Read the identified event type."
+          ],
+          "expected": "The identified event type is Wide Turn.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-011",
+          "verifiability": "host",
+          "criterion": "A positive Y-axis change of at least 0.25 g identifies Speeding in demo mode.",
+          "observable": "Identified event type returned by the event detector",
+          "observable_kind": "return_value",
+          "preconditions": [
+            "The detector is callable with injected, zeroed acceleration samples.",
+            "Demo thresholds are selected."
+          ],
+          "procedure": [
+            "Provide a zeroed baseline sample.",
+            "Within 100 ms, provide a sample with a positive Y-axis change of at least 0.25 g.",
+            "Read the identified event type."
+          ],
+          "expected": "The identified event type is Speeding.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-011",
+          "verifiability": "host",
+          "criterion": "A negative Y-axis change with magnitude at least 0.25 g identifies Sudden Braking in demo mode.",
+          "observable": "Identified event type returned by the event detector",
+          "observable_kind": "return_value",
+          "preconditions": [
+            "The detector is callable with injected, zeroed acceleration samples.",
+            "Demo thresholds are selected."
+          ],
+          "procedure": [
+            "Provide a zeroed baseline sample.",
+            "Within 100 ms, provide a sample with a negative Y-axis change of magnitude at least 0.25 g.",
+            "Read the identified event type."
+          ],
+          "expected": "The identified event type is Sudden Braking.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-011",
+          "verifiability": "host",
+          "criterion": "Each in-vehicle event threshold is configurable within its stated 0.4–0.5 g range.",
+          "observable": "Configured in-vehicle thresholds for Z, X, positive Y, and negative Y event detection",
+          "observable_kind": "state",
+          "preconditions": [
+            "In-vehicle configuration is selected.",
+            "The event-threshold configuration can be read."
+          ],
+          "procedure": [
+            "Read the configured Z, X, positive Y, and negative Y thresholds.",
+            "Check each threshold against the stated range."
+          ],
+          "expected": "Each of the four configured thresholds is between 0.4 g and 0.5 g, inclusive.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-005",
+          "verifiability": "inspection",
+          "criterion": "The LD4 control configuration maps the LED output to GPIO PA5.",
+          "observable": "GPIO configuration and LD4 pin mapping in the source or board configuration",
+          "observable_kind": "state",
+          "preconditions": [
+            "The firmware source or board configuration is available for review."
+          ],
+          "procedure": [
+            "Inspect the LD4 pin mapping and GPIO initialization configuration.",
+            "Confirm the configured LD4 output pin is PA5."
+          ],
+          "expected": "LD4 is controlled through PA5.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-013",
+          "verifiability": "hardware",
+          "criterion": "While an event alert is active, LD4 has 500 ms on intervals alternating with 500 ms off intervals.",
+          "observable": "LD4 output waveform on GPIO PA5",
+          "observable_kind": "signal",
+          "preconditions": [
+            "An event alert is active.",
+            "LD4 is connected through PA5.",
+            "A logic analyzer or equivalent instrument is attached to PA5."
+          ],
+          "procedure": [
+            "Trigger an event alert.",
+            "Capture the PA5 waveform for multiple blink cycles.",
+            "Measure consecutive high and low intervals."
+          ],
+          "expected": "Each on interval is 500 ms and each following off interval is 500 ms, producing a 1 Hz cycle.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-014",
+          "verifiability": "hardware",
+          "criterion": "After the last event, the OLED continues showing the event message until the 2-second post-event interval ends, then clears the message.",
+          "observable": "Event message on the OLED after the last event",
+          "observable_kind": "state",
+          "preconditions": [
+            "At least one event has occurred.",
+            "The OLED is displaying the event message."
+          ],
+          "procedure": [
+            "Record the time of the last event.",
+            "Observe the OLED before 2 seconds have elapsed.",
+            "Observe the OLED at the 2-second post-event deadline."
+          ],
+          "expected": "The event message remains displayed before the 2-second deadline and is no longer displayed at the deadline.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-014",
+          "verifiability": "hardware",
+          "criterion": "After the last event, LD4 continues blinking until the 2-second post-event interval ends, then stops blinking.",
+          "observable": "LD4 output waveform on GPIO PA5 after the last event",
+          "observable_kind": "signal",
+          "preconditions": [
+            "At least one event has occurred.",
+            "LD4 is connected through PA5.",
+            "A logic analyzer or equivalent instrument is attached to PA5."
+          ],
+          "procedure": [
+            "Record the time of the last event.",
+            "Observe PA5 before 2 seconds have elapsed.",
+            "Continue observing PA5 through the 2-second post-event deadline."
+          ],
+          "expected": "Blinking continues before the 2-second deadline and ceases at the deadline.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-015",
+          "verifiability": "host",
+          "criterion": "When multiple listed events are active simultaneously, the selected event message is the highest-priority active event in the specified order.",
+          "observable": "Selected event message or event-priority result produced by the event presentation logic",
+          "observable_kind": "state",
+          "preconditions": [
+            "The event-priority logic is callable with injected active-event states.",
+            "At least two listed event states can be made active simultaneously."
+          ],
+          "procedure": [
+            "For each pair or combination of listed events, mark the events active simultaneously.",
+            "Read the selected event message or priority result."
+          ],
+          "expected": "Sudden Braking is selected over Unseen SpeedBreaker, Wide Turn, and Speeding; Unseen SpeedBreaker is selected over Wide Turn and Speeding; and Wide Turn is selected over Speeding.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        }
+      ]
+    },
+    {
+      "id": "cat-5",
+      "name": "Dashboard Data Streaming",
+      "criteria": [
+        {
+          "requirement_id": "FR-017",
+          "verifiability": "hardware",
+          "criterion": "The dashboard receives and makes available both cabin-comfort data and ride data from the firmware during operation.",
+          "observable": "The dashboard's received data or display showing cabin-comfort and ride data",
+          "observable_kind": "state",
+          "preconditions": [
+            "The device is installed in a vehicle.",
+            "The dashboard is connected and able to receive the firmware's stream."
+          ],
+          "procedure": [
+            "Power the device and dashboard.",
+            "Operate the system while observing the dashboard's received data or display.",
+            "Confirm that both cabin-comfort data and ride data are available on the dashboard."
+          ],
+          "expected": "Both cabin-comfort data and ride data from the firmware are available at the dashboard.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        }
+      ]
+    }
+  ]
+}

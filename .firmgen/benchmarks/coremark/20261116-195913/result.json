@@ -1,0 +1,96 @@
+{
+  "schema": "firmgen.benchmark.result/1",
+  "benchmark": "coremark",
+  "run_id": "20261116-195913",
+  "started_at": "2026-11-16T19:59:13.593829500+05:30",
+  "finished_at": "2026-11-16T19:59:40.336033+05:30",
+  "status": "PASS",
+  "code": "COREMARK_PASS",
+  "message": null,
+  "target": {
+    "platform": "STM32 classic / CMSIS reset clock / SWD capture",
+    "board": "NUCLEO-G070RB",
+    "compiler": "ARM GCC",
+    "build_preset": "Release-arm-gcc"
+  },
+  "compiler": {
+    "version": "arm-none-eabi-gcc.exe (GNU Tools for STM32 14.3.rel1.20251027-0700) 14.3.1 20250623",
+    "flags": "-mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -O3 -std=gnu11 -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -Wall"
+  },
+  "capture_seconds": 21.438,
+  "result": {
+    "coremark": 31.449,
+    "coremark_per_mhz": 1.966,
+    "iterations": 400,
+    "total_ticks": 12719,
+    "ticks_per_second": 1000,
+    "total_time_seconds": 12.719,
+    "core_clock_hz": 16000000,
+    "run_type": "2K performance",
+    "coremark_size": 666,
+    "memory_location": "STATIC",
+    "crc": {
+      "seedcrc": "0xe9f5",
+      "crclist": "0xe714",
+      "crcmatrix": "0x1fd7",
+      "crcstate": "0x8e3a",
+      "crcfinal": "0x25b5"
+    },
+    "validated": true,
+    "score_line": "CoreMark 1.0 : 31.449013 / arm-none-eabi-gcc.exe (GNU Tools for STM32 14.3.rel1.20251027-0700) 14.3.1 20250623 -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -O3 -std=gnu11 -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -Wall / STATIC",
+    "source": {
+      "repository": "https://github.com/eembc/coremark",
+      "revision": "1f483d5b8316753a742cbf5590caf5bd0a4e4777",
+      "sources_verified": true
+    }
+  },
+  "checks": [
+    {
+      "name": "Board output",
+      "ok": true,
+      "detail": "the CoreMark image started and printed its banner"
+    },
+    {
+      "name": "Runtime diagnostics",
+      "ok": true,
+      "detail": "no runtime fault reported"
+    },
+    {
+      "name": "Run completed",
+      "ok": true,
+      "detail": "CoreMark finished and printed its results"
+    },
+    {
+      "name": "Run type",
+      "ok": true,
+      "detail": "2K performance run"
+    },
+    {
+      "name": "CRC validation",
+      "ok": true,
+      "detail": "seedcrc 0xe9f5, crclist 0xe714, crcmatrix 0x1fd7, crcstate 0x8e3a — \"Correct operation validated.\""
+    },
+    {
+      "name": "Run time",
+      "ok": true,
+      "detail": "12.719 s timed (at least 10 s required)"
+    },
+    {
+      "name": "Timer cross-check",
+      "ok": true,
+      "detail": "host clock 16.21 s from start to finish; the board's timer implies 16.22 s"
+    },
+    {
+      "name": "Score consistency",
+      "ok": true,
+      "detail": "printed 31.449 / computed 31.449 iterations/s"
+    }
+  ],
+  "application_restored": true,
+  "restore": "C:\\Users\\Adith\\OneDrive\\Desktop\\VPD\\vehicleparametersdisplay\\.firmgen\\benchmarks\\coremark\\restore\\345f3211bd6c3517853020a0da08f5de0da2065a0580cac4dfcda7701cbb882b.elf flashed back, verified and reset. Runtime startup identity was not independently verified.",
+  "artifacts": {
+    "build": "C:\\Users\\Adith\\OneDrive\\Desktop\\VPD\\vehicleparametersdisplay\\.firmgen\\benchmarks\\coremark\\20261116-195913\\build.log",
+    "serial": "C:\\Users\\Adith\\OneDrive\\Desktop\\VPD\\vehicleparametersdisplay\\.firmgen\\benchmarks\\coremark\\20261116-195913\\serial.log",
+    "elf": "C:/Users/Adith/AppData/Local/Temp/fg-bench/72a8d3c6ad394b32357e/coremark/Release-arm-gcc/firmgen_coremark.elf"
+  }
+}

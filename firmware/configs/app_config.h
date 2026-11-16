@@ -1,0 +1,52 @@
+/* Shared application configuration; owns editable timing and threshold values. */
+#ifndef APP_CONFIG_H
+#define APP_CONFIG_H
+// On-board LED pins grounded from the board BSP (NUCLEO-G070RB). APP_LED_GPIO_PIN is a HAL pin MASK
+// (GPIO_PIN_x) — use it directly with HAL_GPIO_TogglePin/WritePin; do NOT shift it. Nucleo user
+// LEDs are active-high (GPIO_PIN_SET = on). All on-board LEDs are listed below.
+#define APP_LED_GPIO_PORT   GPIOA
+#define APP_LED_GPIO_PIN    GPIO_PIN_5
+#define APP_LED_ACTIVE_HIGH 1
+#define APP_LED4_GPIO_PORT  GPIOA
+#define APP_LED4_GPIO_PIN   GPIO_PIN_5
+#define APP_LED_PERIOD_MS 200
+
+/* Demo is the active default; vehicle values remain independently editable. */
+#define APP_LOGO_DISPLAY_MS 2000U
+#define APP_TEMPERATURE_HIGH_C 32.0F
+#define APP_HUMIDITY_HIGH_PERCENT 75.0F
+#define APP_EVENT_Z_THRESHOLD_G 0.30F
+#define APP_EVENT_X_THRESHOLD_G 0.25F
+#define APP_EVENT_POS_Y_THRESHOLD_G 0.25F
+#define APP_EVENT_NEG_Y_THRESHOLD_G (-0.25F)
+#define APP_VEHICLE_TEMPERATURE_HIGH_C 45.0F
+#define APP_VEHICLE_HUMIDITY_HIGH_PERCENT 80.0F
+#define APP_VEHICLE_EVENT_Z_THRESHOLD_G 0.45F
+#define APP_VEHICLE_EVENT_X_THRESHOLD_G 0.45F
+#define APP_VEHICLE_EVENT_POS_Y_THRESHOLD_G 0.45F
+#define APP_VEHICLE_EVENT_NEG_Y_THRESHOLD_G (-0.45F)
+#define APP_SUDDEN_WINDOW_MS 100U
+#define APP_EVENT_DISPLAY_MS 2000U
+#define APP_I2C_GPIO_PORT GPIOB
+#define APP_I2C_SCL_PIN GPIO_PIN_8
+#define APP_I2C_SDA_PIN GPIO_PIN_9
+#define APP_I2C_TIMING 0x00303D5BU
+#define APP_I2C_TIMEOUT_MS 3U
+#define APP_MPU_ADDRESS 0x68U
+#define APP_MPU_PERIOD_MS 10U
+#define APP_DHT_GPIO_PORT GPIOB
+#define APP_DHT_PIN GPIO_PIN_4
+#define APP_DHT_PERIOD_MS 2000U
+#define APP_DHT_STARTUP_MS 1000U
+#define APP_CALIBRATION_MS 1000U
+#define APP_CALIBRATION_FLAT_G 0.20F
+#define APP_CALIBRATION_STILL_G 0.04F
+#define APP_UART_GPIO_PORT GPIOA
+#define APP_UART_TX_PIN GPIO_PIN_2
+#define APP_UART_RX_PIN GPIO_PIN_3
+#define APP_UART_BAUD 115200U
+#define APP_ALERT_CYCLE_MS 1000U
+#define APP_ALERT_ON_MS 500U
+#define APP_VEHICLE_MODE 0
+#define APP_TELEMETRY_PERIOD_MS 200U
+#endif

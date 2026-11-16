@@ -1,0 +1,30 @@
+{
+  "schema_version": "3.0.0",
+  "view": "lld",
+  "revision": "7c96595f4e37ab78823acf279831f536",
+  "graph_version": 8,
+  "generated_at_ms": 1794839317332,
+  "mermaid": "flowchart TD\n  subgraph AppStart[\"app_start main-context loop\"]\n    start[\"Start telemetry and initialize application state<br/>firmware/app/app.c:14\"]\n    init{\"platform_io_init succeeds — firmware/app/app.c:21\"}\n    failed[\"Return from app_start<br/>firmware/app/app.c:22\"]\n    setup[\"Scan bus#59; initialize display, sensors, and ride events<br/>firmware/app/app.c:25-27\"]\n    poll[\"Poll telemetry and platform I/O#59; read current time<br/>firmware/app/app.c:29-32\"]\n    process[\"Process sensor schedules and get snapshot<br/>firmware/app/app.c:37-39\"]\n    display_gate{\"Display ready and splash finished — firmware/app/app.c:42\"}\n    accel_gate{\"Acceleration reading valid — firmware/app/app.c:44\"}\n    sample[\"Submit acceleration sample or invalid sample<br/>firmware/app/app.c:46-56\"]\n    update[\"Update ride event and LED state<br/>firmware/app/app.c:58\"]\n    event_gate{\"Event changed — firmware/app/app.c:59\"}\n    event_output[\"Update display event text and log event<br/>firmware/app/app.c:61-69\"]\n    led[\"Apply LED state<br/>firmware/app/app.c:71\"]\n    led_gate{\"LED state changed — firmware/app/app.c:72\"}\n    led_log[\"Log LED command<br/>firmware/app/app.c:74-78\"]\n    display_ready{\"Display initialized — firmware/app/app.c:80\"}\n    render[\"Process display state and dashboard pages<br/>firmware/app/app.c:82\"]\n    telemetry[\"Process periodic CSV telemetry<br/>firmware/app/app.c:84\"]\n  end\n\n  start --> init\n  init -->|no| failed\n  init -->|yes| setup\n  setup --> poll\n  poll --> process\n  process --> display_gate\n  display_gate -->|yes| accel_gate\n  display_gate -->|no| event_gate\n  accel_gate -->|yes| sample\n  accel_gate -->|no| sample\n  sample --> update\n  update --> event_gate\n  event_gate -->|yes| event_output\n  event_gate -->|no| led\n  event_output --> led\n  led --> led_gate\n  led_gate -->|yes| led_log\n  led_gate -->|no| display_ready\n  led_log --> display_ready\n  display_ready -->|yes| render\n  display_ready -->|no| telemetry\n  render --> telemetry\n  telemetry -->|next loop| poll",
+  "title": "Low-Level Design (Firmware Workflow)",
+  "node_notes": {
+    "render": "When the display is ready, display_process advances splash or dashboard rendering using the current snapshot. The call is in the app_start loop after event and LED handling.",
+    "telemetry": "The application calls telemetry_process with the current time, readings, and event every loop; the service itself enforces the configured record period. The call is at the end of the app_start iteration.",
+    "event_output": "When the event changes, the application updates display text and logs either a cleared event or the selected event message. These calls are grouped under the change condition in app_start.",
+    "start": "This step starts FirmGen telemetry and initializes app-local state before hardware setup. The calls are at the beginning of app_start in firmware/app/app.c.",
+    "init": "This branch checks whether platform_io_init completed successfully. app_start returns immediately on failure rather than entering the sensor and display loop.",
+    "accel_gate": "The branch selects a real acceleration sample when acceleration_valid is true and otherwise supplies NULL. That validity check appears in the event-processing block of app_start.",
+    "display_ready": "The application checks whether display initialization succeeded before processing display state. A failed display initialization therefore skips recurring display work.",
+    "led": "The application sends the current alert LED state to the platform layer on each loop iteration. The call is platform_io_led in firmware/app/app.c.",
+    "poll": "Each cooperative-loop iteration polls FirmGen telemetry, reads the tick count, and polls platform I/O. This is the first recurring work in app_start's loop.",
+    "led_log": "The application logs whether the LED command changed to ON or OFF, then records the new previous state. This conditional logging follows the LED state comparison.",
+    "event_gate": "This decision prevents repeated event-change display updates and logs. It compares the current event with previous_event in app_start.",
+    "display_gate": "Ride-event sampling and updating only happen when the display initialized successfully and is no longer showing its splash. The condition is checked in app_start before event processing.",
+    "failed": "An I/O initialization failure ends app_start before any runtime polling begins. The early return is in firmware/app/app.c directly after platform_io_init.",
+    "process": "The sensor service updates scheduled sensor readings and app_start obtains the resulting snapshot. The calls are sensors_process and sensors_snapshot in firmware/app/app.c.",
+    "update": "The ride-event module selects the active event and computes the LED state for the current time. app_start calls ride_events_update after submitting the sample.",
+    "setup": "On success, app_start scans the I2C bus, initializes the display and sensors, and initializes ride-event state. These setup calls occur before the infinite loop in firmware/app/app.c.",
+    "sample": "The application submits either the snapshot's acceleration and timestamp or an invalid sample to ride_events_sample. Both paths are present in firmware/app/app.c.",
+    "led_gate": "This check detects transitions in the requested LED state so the application logs only changes. It compares led_on to previous_led in app_start."
+  },
+  "authored_by_model": true
+}

@@ -1,0 +1,16 @@
+flowchart LR
+    boot(["Boot / app_main"])
+    gpio_output_pa5["PA5<br/>pin=PA5"]
+    gpio_output_pb4["PB4<br/>pin=PB4"]
+    gpio_input_pb8["PB8<br/>pin=PB8"]
+    gpio_input_pb9["PB9<br/>pin=PB9"]
+    timer_app_start("Task app_start")
+    uart_device_usart2["USART2"]
+    boot -->|spawns| timer_app_start
+    timer_app_start -->|drives| gpio_output_pa5
+    timer_app_start -->|drives| gpio_output_pb4
+    timer_app_start -->|reads| gpio_input_pb8
+    timer_app_start -->|reads| gpio_input_pb9
+    timer_app_start -->|reads| gpio_output_pb4
+    boot -->|initializes| uart_device_usart2
+    timer_app_start -->|publishes| uart_device_usart2

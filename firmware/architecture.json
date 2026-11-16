@@ -1,0 +1,31 @@
+{
+  "schema": "firmgen.architecture/1",
+  "images": [{"name": "vehicle_monitor", "linker_script": "STM32G070RBTX_FLASH.ld", "purpose": "Single application using the vendor flash and RAM layout; no bootloader or update slots required."}],
+  "tasks": [],
+  "resources": [
+    {"name": "I2C1 PB8/PB9", "kind": "peripheral", "owner": "app_start", "users": ["MPU6050 and SH1106 through serialized platform transfers"]},
+    {"name": "DHT22 PB4", "kind": "peripheral", "owner": "app_start", "users": ["climate acquisition"]},
+    {"name": "LD4 PA5", "kind": "peripheral", "owner": "app_start", "users": ["event alert policy"]},
+    {"name": "OLED framebuffer", "kind": "buffer", "owner": "app_start", "users": ["display renderer"]},
+    {"name": "Telemetry output", "kind": "peripheral", "owner": "app_start", "users": ["telemetry service; transport contract pending category 5"]}
+  ],
+  "modules": [
+    {"name": "app", "header": "firmware/app/app.h", "purpose": "Cooperative orchestration and splash-to-dashboard lifecycle", "depends_on": ["sensors", "display", "ride_events", "telemetry"]},
+    {"name": "sensors", "header": "firmware/services/sensors.h", "purpose": "Sampling, calibration, validity and axis interpretation", "depends_on": ["mpu6050", "dht22", "platform_io"]},
+    {"name": "mpu6050", "header": "firmware/drivers/mpu6050/mpu6050.h", "purpose": "Portable register configuration and acceleration conversion", "depends_on": ["platform_io"]},
+    {"name": "dht22", "header": "firmware/drivers/dht22/dht22.h", "purpose": "Portable frame decoding and validation", "depends_on": ["platform_io"]},
+    {"name": "display", "header": "firmware/services/display.h", "purpose": "Logo, dashboard and event rendering", "depends_on": ["sh1106"]},
+    {"name": "sh1106", "header": "firmware/drivers/sh1106/sh1106.h", "purpose": "Page-format display protocol with two-column offset", "depends_on": ["platform_io"]},
+    {"name": "ride_events", "header": "firmware/modules/ride_events.h", "purpose": "Pure timed axis-change detection, priority, hold and LED policy", "depends_on": []},
+    {"name": "telemetry", "header": "firmware/services/telemetry.h", "purpose": "Framed measurements and validity with bounded transmission", "depends_on": ["platform_io"]},
+    {"name": "platform_io", "header": "firmware/interfaces/platform_io.h", "purpose": "Vendor-neutral I/O contract implemented exclusively in platforms/stm32", "depends_on": []}
+  ],
+  "decisions": [
+    {"what": "Keep vendor startup, linker and main stack reservation", "why": "Single bare-metal image; no independent task stacks or scheduler."},
+    {"what": "Use app_config.h as authoritative values and config.h as public aliases", "why": "Preserve configuration editor support and the PRD config.h contract without duplicate values."},
+    {"what": "Default demo profile; in-vehicle axis magnitudes 0.45 g", "why": "Demo uses mandatory 32 C and 75 percent; 0.45 g lies within the specified vehicle range."},
+    {"what": "No overlapping I2C transactions", "why": "One main-context owner serializes MPU6050 and OLED operations; bounded display work must preserve 100 Hz sampling."},
+    {"what": "Dashboard transport is ST-Link VCP USART2; logo is sources/craftiailogo.png", "why": "VPD1 framed CSV selected for local transport; supplied bitmap converted to flash page format. External dashboard ingestion remains unverified."}
+  ],
+  "revisions": [{"what": "No scheduled tasks are created", "why": "Bare-metal app_start is called directly by vendor main; resources remain main-context owned. Vendor linker reserves a minimum 1024-byte main stack, not a task stack."}]
+}

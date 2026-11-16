@@ -1,0 +1,19 @@
+FIRMGEN_COREMARK_BEGIN clock_hz=16000000 tick_hz=1000
+Clock mode: vendor reset clock; not application PLL configuration
+2K performance run parameters for coremark.
+CoreMark Size    : 666
+Total ticks      : 12719
+Total time (secs): 12.719000
+Iterations/Sec   : 31.449013
+Iterations       : 400
+Compiler version : arm-none-eabi-gcc.exe (GNU Tools for STM32 14.3.rel1.20251027-0700) 14.3.1 20250623
+Compiler flags   : -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -O3 -std=gnu11 -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -Wall
+Memory location  : STATIC
+seedcrc          : 0xe9f5
+[0]crclist       : 0xe714
+[0]crcmatrix     : 0x1fd7
+[0]crcstate      : 0x8e3a
+[0]crcfinal      : 0x25b5
+Correct operation validated. See README.md for run and reporting rules.
+CoreMark 1.0 : 31.449013 / arm-none-eabi-gcc.exe (GNU Tools for STM32 14.3.rel1.20251027-0700) 14.3.1 20250623 -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -O3 -std=gnu11 -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -Wall / STATIC
+FIRMGEN_COREMARK_END

@@ -1,0 +1,1553 @@
+{
+  "schema_version": "2.1.0",
+  "id": "pir_vehicleparametersdisplay",
+  "revision": "7c96595f4e37ab78823acf279831f536",
+  "provenance": {
+    "project_path": "C:\\Users\\Adith\\OneDrive\\Desktop\\VPD\\vehicleparametersdisplay",
+    "chat_id": "a823cf73-93b7-451e-9a48-d1e58efabcfc",
+    "revision": "7c96595f4e37ab78823acf279831f536",
+    "generated_at_ms": 1794839268616,
+    "analyzer_version": "pir_maker-static-0.15.1",
+    "analyzed_files": [
+      "CMakeLists.txt",
+      "Core/Inc/main.h",
+      "Core/Inc/stm32g0xx_hal_conf.h",
+      "Core/Inc/stm32g0xx_it.h",
+      "Core/Src/main.c",
+      "Core/Src/stm32g0xx_hal_msp.c",
+      "Core/Src/stm32g0xx_it.c",
+      "Core/Src/system_stm32g0xx.c",
+      "Core/Startup/iar/firmgen_iar_syscalls.c",
+      "firmware/app/app.c",
+      "firmware/app/app.h",
+      "firmware/bsp/board.c",
+      "firmware/bsp/board.h",
+      "firmware/configs/app_config.h",
+      "firmware/configs/build_config.h",
+      "firmware/configs/config.h",
+      "firmware/configs/feature_config.h",
+      "firmware/configs/platform_config.h",
+      "firmware/drivers/dht22/dht22.c",
+      "firmware/drivers/dht22/dht22.h",
+      "firmware/drivers/mpu6050/mpu6050.c",
+      "firmware/drivers/mpu6050/mpu6050.h",
+      "firmware/drivers/sh1106/sh1106.c",
+      "firmware/drivers/sh1106/sh1106.h",
+      "firmware/interfaces/platform_io.h",
+      "firmware/modules/ride_events.c",
+      "firmware/modules/ride_events.h",
+      "firmware/osal/osal.h",
+      "firmware/platforms/stm32/osal_baremetal.c",
+      "firmware/platforms/stm32/platform_io.c",
+      "firmware/services/display.c",
+      "firmware/services/display.h",
+      "firmware/services/display_font.h",
+      "firmware/services/logo.h",
+      "firmware/services/sensors.c",
+      "firmware/services/sensors.h",
+      "firmware/services/telemetry.c",
+      "firmware/services/telemetry.h",
+      "firmware/telemetry/fg_telemetry_profile.h",
+      "firmware/telemetry/firmgen_telemetry.c",
+      "firmware/telemetry/firmgen_telemetry.h",
+      "firmware/utils/helpers/helpers.c",
+      "firmware/utils/helpers/helpers.h",
+      "firmware/utils/logger/logger.c",
+      "firmware/utils/logger/logger.h"
+    ],
+    "file_hashes": {
+      "firmware/drivers/mpu6050/mpu6050.c": "03a4f632a16b855abfda37285bbda4ba",
+      "Core/Inc/stm32g0xx_it.h": "d0ae7966831b904f9e657eda8cce4f84",
+      "firmware/configs/feature_config.h": "08ef51c6dfb8aa157bd736ea8388e0ba",
+      "Core/Startup/iar/firmgen_iar_syscalls.c": "cfd0c1913e4c0e5d6c0543fea78c8aac",
+      "CMakeLists.txt": "dd933361ac178bc87ebb686946d88f22",
+      "firmware/services/telemetry.c": "187ff189f67dddc0e46710138a0b5cd0",
+      "firmware/services/telemetry.h": "408b1ad6d05788ea2eadd770cf6f2a47",
+      "firmware/drivers/sh1106/sh1106.c": "ea71ec702d5c9a5bb9bffd9251a2f8e6",
+      "firmware/drivers/dht22/dht22.h": "f1e7f936b987c17c5b55556ae6aac0b1",
+      "firmware/configs/app_config.h": "ea8a715de1b1c646dfc35d0491961b5e",
+      "Core/Inc/main.h": "e1180d82a21f08fa054dc364e7439416",
+      "firmware/utils/logger/logger.h": "3d04d6e66848f19e74234e5a35c8f4b2",
+      "firmware/services/display.h": "97bf71cd6b5b2e8e7d02ebdb38ffb798",
+      "firmware/drivers/mpu6050/mpu6050.h": "db7c748203ebe0ffa4a5806c9151ddca",
+      "firmware/services/display.c": "30034fb12a27f084bc67adc61941cc71",
+      "firmware/app/app.h": "ebc6cfe87fb8e2ab299633dd7a067f3b",
+      "firmware/configs/config.h": "7141302aaf2ccd4d773aa6d1134dcefd",
+      "firmware/utils/helpers/helpers.h": "ec8b635b7e5b55f8aeb8f47c3ff34312",
+      "firmware/modules/ride_events.c": "9f0ae6fd5a5874c293a992b9e57b64da",
+      "firmware/platforms/stm32/osal_baremetal.c": "c3fe626062f9f798789145b6df18d278",
+      "firmware/services/sensors.c": "e7c0073120f99228afaff52c33b11bb0",
+      "firmware/telemetry/firmgen_telemetry.h": "7cce76ce1e1cc0f00ffb0832f86c66d1",
+      "firmware/utils/logger/logger.c": "8dee34d253439ffcf8875579f8801512",
+      "Core/Src/stm32g0xx_it.c": "e61a129d8081e08d48327974d5f6512b",
+      "firmware/bsp/board.h": "1153d985e83c0e0ffe3ee4e06c60d0e5",
+      "firmware/platforms/stm32/platform_io.c": "50b18d229d0238351e83ffcdb2f12b03",
+      "firmware/osal/osal.h": "728762de0ca7985d64d82817e360bc11",
+      "firmware/services/sensors.h": "d07222784be3868913c298b4fcbb9519",
+      "firmware/interfaces/platform_io.h": "bf72e86fcbcb2d36b95f5488120c2c90",
+      "firmware/modules/ride_events.h": "90fa33711b7f3c2ef6f4a9d7d4ed4df7",
+      "firmware/telemetry/fg_telemetry_profile.h": "46ecabb1164599587922a28f404476e1",
+      "firmware/utils/helpers/helpers.c": "914568ab7415fec17e74f306cbb5ae09",
+      "firmware/bsp/board.c": "e630056f89563be97755fb3703f3a541",
+      "Core/Src/stm32g0xx_hal_msp.c": "1b738e0ef208c226244b41d079689a80",
+      "firmware/configs/build_config.h": "dd997e9a0a461df28c370a61963fd7e5",
+      "Core/Inc/stm32g0xx_hal_conf.h": "0de4ced0fcb7967737f4bce3ca206299",
+      "firmware/drivers/sh1106/sh1106.h": "d6a742d28c136f5cc3f2b54812a5ca05",
+      "firmware/services/logo.h": "af6a749896e6f99b907f5a3e863900e3",
+      "firmware/configs/platform_config.h": "010b01144dbd2d3fb63f3053b158ab7a",
+      "Core/Src/system_stm32g0xx.c": "0716b9e6532685c45493350ac14c841d",
+      "firmware/app/app.c": "94d5abed0231eeee83ccc0e3c9129d2d",
+      "firmware/telemetry/firmgen_telemetry.c": "13706f85d3d38a4c683086df3556c542",
+      "firmware/services/display_font.h": "742c1bfa11df240828a1487970515d00",
+      "Core/Src/main.c": "9ff2c00688db96cd5f9de371c44d61e5",
+      "firmware/drivers/dht22/dht22.c": "1bddadcc0fabbf882903819d356d4503"
+    },
+    "target_chip": null,
+    "config_hash": null,
+    "feature_flags": "mode=hybrid;refine=true",
+    "platform": "stm32"
+  },
+  "approval": {
+    "status": "stale"
+  },
+  "nodes": [
+    {
+      "id": "boot",
+      "node_type": "system_init",
+      "label": "Boot / app_main",
+      "properties": {
+        "target": "stm32"
+      },
+      "source_refs": [
+        {
+          "file": "Core/Src/main.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "7c96595f4e37ab78823acf279831f536"
+      },
+      "ownership": {
+        "primary_files": [
+          "Core/Src/main.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "system",
+      "ai_summary": "Bootstraps firmware startup and initializes core subsystems.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_output_pa5",
+      "node_type": "gpio_output",
+      "label": "PA5",
+      "properties": {
+        "pin": "PA5"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "7c96595f4e37ab78823acf279831f536"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/platform_io.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Drives a digital output signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_output_pb4",
+      "node_type": "gpio_output",
+      "label": "PB4",
+      "properties": {
+        "pin": "PB4"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "7c96595f4e37ab78823acf279831f536"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/platform_io.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Drives a digital output signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_input_pb8",
+      "node_type": "gpio_input",
+      "label": "PB8",
+      "properties": {
+        "pin": "PB8"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "7c96595f4e37ab78823acf279831f536"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/platform_io.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Reads a digital input signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "gpio_input_pb9",
+      "node_type": "gpio_input",
+      "label": "PB9",
+      "properties": {
+        "pin": "PB9"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "7c96595f4e37ab78823acf279831f536"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/platform_io.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "physical",
+      "ai_summary": "Reads a digital input signal.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "timer_app_start",
+      "node_type": "timer",
+      "label": "Task app_start",
+      "properties": {
+        "task_name": "app_start",
+        "period_ms": 0.0
+      },
+      "source_refs": [
+        {
+          "file": "firmware/app/app.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "7c96595f4e37ab78823acf279831f536"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/app/app.c"
+        ]
+      },
+      "editable_fields": [],
+      "layer": "runtime",
+      "ai_summary": "Schedules periodic callbacks for time-based workflow.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "uart_device_usart2",
+      "node_type": "uart_device",
+      "label": "USART2",
+      "properties": {
+        "port": 1,
+        "baud_rate": 115200
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "7c96595f4e37ab78823acf279831f536"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/stm32/platform_io.c"
+        ]
+      },
+      "editable_fields": [
+        "baud_rate"
+      ],
+      "layer": "physical",
+      "ai_summary": "Represents a UART peripheral with mapped serial pins.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_boot_timer_app_start_spawns",
+      "source_node_id": "boot",
+      "target_node_id": "timer_app_start",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/app/app.c",
+          "symbol": "app_start",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "spawns",
+      "validated": false
+    },
+    {
+      "id": "e_timer_app_start_gpio_output_pa5_drives",
+      "source_node_id": "timer_app_start",
+      "target_node_id": "gpio_output_pa5",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "line": 62,
+          "symbol": "platform_io_init",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "drives",
+      "validated": false
+    },
+    {
+      "id": "e_timer_app_start_gpio_output_pb4_drives",
+      "source_node_id": "timer_app_start",
+      "target_node_id": "gpio_output_pb4",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "line": 125,
+          "symbol": "platform_io_init",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "drives",
+      "validated": false
+    },
+    {
+      "id": "e_timer_app_start_gpio_input_pb8_reads",
+      "source_node_id": "timer_app_start",
+      "target_node_id": "gpio_input_pb8",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "line": 220,
+          "symbol": "platform_io_scan",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "reads",
+      "validated": false
+    },
+    {
+      "id": "e_timer_app_start_gpio_input_pb9_reads",
+      "source_node_id": "timer_app_start",
+      "target_node_id": "gpio_input_pb9",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "line": 221,
+          "symbol": "platform_io_scan",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "reads",
+      "validated": false
+    },
+    {
+      "id": "e_timer_app_start_gpio_output_pb4_reads",
+      "source_node_id": "timer_app_start",
+      "target_node_id": "gpio_output_pb4",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "line": 240,
+          "symbol": "platform_io_wait_level",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "reads",
+      "validated": false
+    },
+    {
+      "id": "e_boot_uart_device_usart2_initializes",
+      "source_node_id": "boot",
+      "target_node_id": "uart_device_usart2",
+      "kind": "hardware",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "symbol": "USART2",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_timer_app_start_publishes_usart2",
+      "source_node_id": "timer_app_start",
+      "target_node_id": "uart_device_usart2",
+      "kind": "data",
+      "confidence": 0.95,
+      "source_refs": [
+        {
+          "file": "firmware/app/app.c",
+          "line": 13,
+          "symbol": "app_start",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/services/telemetry.c",
+          "line": 15,
+          "symbol": "telemetry_process",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/stm32/platform_io.c",
+          "line": 90,
+          "symbol": "platform_io_init",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "publishes",
+      "validated": false
+    }
+  ],
+  "layers": {
+    "physical": [
+      "gpio_output_pa5",
+      "gpio_output_pb4",
+      "gpio_input_pb8",
+      "gpio_input_pb9",
+      "uart_device_usart2"
+    ],
+    "runtime": [
+      "timer_app_start"
+    ],
+    "network": [],
+    "system": [
+      "boot"
+    ]
+  },
+  "partitions": [],
+  "components": [],
+  "modules": [
+    {
+      "id": "Core_Inc",
+      "label": "Core/Inc",
+      "path": "Core/Inc",
+      "kind": "module",
+      "files": [
+        "Core/Inc/main.h",
+        "Core/Inc/stm32g0xx_hal_conf.h",
+        "Core/Inc/stm32g0xx_it.h"
+      ]
+    },
+    {
+      "id": "Core_Src",
+      "label": "Core/Src",
+      "path": "Core/Src",
+      "kind": "module",
+      "files": [
+        "Core/Src/main.c",
+        "Core/Src/stm32g0xx_hal_msp.c",
+        "Core/Src/stm32g0xx_it.c",
+        "Core/Src/system_stm32g0xx.c"
+      ]
+    },
+    {
+      "id": "Core_Startup_iar",
+      "label": "Core/Startup/iar",
+      "path": "Core/Startup/iar",
+      "kind": "module",
+      "files": [
+        "Core/Startup/iar/firmgen_iar_syscalls.c"
+      ]
+    },
+    {
+      "id": "app",
+      "label": "app",
+      "path": "app",
+      "kind": "application",
+      "files": [
+        "firmware/app/app.c",
+        "firmware/app/app.h"
+      ]
+    },
+    {
+      "id": "bsp",
+      "label": "bsp",
+      "path": "bsp",
+      "kind": "board",
+      "files": [
+        "firmware/bsp/board.c",
+        "firmware/bsp/board.h"
+      ]
+    },
+    {
+      "id": "configs",
+      "label": "configs",
+      "path": "configs",
+      "kind": "configuration",
+      "files": [
+        "firmware/configs/app_config.h",
+        "firmware/configs/build_config.h",
+        "firmware/configs/config.h",
+        "firmware/configs/feature_config.h",
+        "firmware/configs/platform_config.h"
+      ]
+    },
+    {
+      "id": "drivers_dht22",
+      "label": "drivers/dht22",
+      "path": "drivers/dht22",
+      "kind": "driver",
+      "files": [
+        "firmware/drivers/dht22/dht22.c",
+        "firmware/drivers/dht22/dht22.h"
+      ]
+    },
+    {
+      "id": "drivers_mpu6050",
+      "label": "drivers/mpu6050",
+      "path": "drivers/mpu6050",
+      "kind": "driver",
+      "files": [
+        "firmware/drivers/mpu6050/mpu6050.c",
+        "firmware/drivers/mpu6050/mpu6050.h"
+      ]
+    },
+    {
+      "id": "drivers_sh1106",
+      "label": "drivers/sh1106",
+      "path": "drivers/sh1106",
+      "kind": "driver",
+      "files": [
+        "firmware/drivers/sh1106/sh1106.c",
+        "firmware/drivers/sh1106/sh1106.h"
+      ]
+    },
+    {
+      "id": "interfaces",
+      "label": "interfaces",
+      "path": "interfaces",
+      "kind": "module",
+      "files": [
+        "firmware/interfaces/platform_io.h"
+      ]
+    },
+    {
+      "id": "modules",
+      "label": "modules",
+      "path": "modules",
+      "kind": "module",
+      "files": [
+        "firmware/modules/ride_events.c",
+        "firmware/modules/ride_events.h"
+      ]
+    },
+    {
+      "id": "osal",
+      "label": "osal",
+      "path": "osal",
+      "kind": "abstraction",
+      "files": [
+        "firmware/osal/osal.h"
+      ]
+    },
+    {
+      "id": "platforms_stm32",
+      "label": "platforms/stm32",
+      "path": "platforms/stm32",
+      "kind": "platform",
+      "files": [
+        "firmware/platforms/stm32/osal_baremetal.c",
+        "firmware/platforms/stm32/platform_io.c"
+      ]
+    },
+    {
+      "id": "services",
+      "label": "services",
+      "path": "services",
+      "kind": "module",
+      "files": [
+        "firmware/services/display.c",
+        "firmware/services/display.h",
+        "firmware/services/display_font.h",
+        "firmware/services/logo.h",
+        "firmware/services/sensors.c",
+        "firmware/services/sensors.h",
+        "firmware/services/telemetry.c",
+        "firmware/services/telemetry.h"
+      ]
+    },
+    {
+      "id": "telemetry",
+      "label": "telemetry",
+      "path": "telemetry",
+      "kind": "module",
+      "files": [
+        "firmware/telemetry/fg_telemetry_profile.h",
+        "firmware/telemetry/firmgen_telemetry.c",
+        "firmware/telemetry/firmgen_telemetry.h"
+      ]
+    },
+    {
+      "id": "utils_helpers",
+      "label": "utils/helpers",
+      "path": "utils/helpers",
+      "kind": "utility",
+      "files": [
+        "firmware/utils/helpers/helpers.c",
+        "firmware/utils/helpers/helpers.h"
+      ]
+    },
+    {
+      "id": "utils_logger",
+      "label": "utils/logger",
+      "path": "utils/logger",
+      "kind": "utility",
+      "files": [
+        "firmware/utils/logger/logger.c",
+        "firmware/utils/logger/logger.h"
+      ]
+    }
+  ],
+  "module_deps": [
+    {
+      "from": "Core_Src",
+      "to": "Core_Inc",
+      "via": "include",
+      "file": "Core/Src/main.c",
+      "line": 21,
+      "symbol": "main.h"
+    },
+    {
+      "from": "Core_Src",
+      "to": "app",
+      "via": "include",
+      "file": "Core/Src/main.c",
+      "line": 22,
+      "symbol": "app.h"
+    },
+    {
+      "from": "app",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 8,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "app",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 3,
+      "symbol": "platform_io.h"
+    },
+    {
+      "from": "app",
+      "to": "modules",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 6,
+      "symbol": "ride_events.h"
+    },
+    {
+      "from": "app",
+      "to": "services",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 4,
+      "symbol": "sensors.h"
+    },
+    {
+      "from": "app",
+      "to": "telemetry",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 10,
+      "symbol": "firmgen_telemetry.h"
+    },
+    {
+      "from": "bsp",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/bsp/board.h",
+      "line": 19,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "modules",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/modules/ride_events.c",
+      "line": 3,
+      "symbol": "config.h"
+    },
+    {
+      "from": "platforms_stm32",
+      "to": "bsp",
+      "via": "include",
+      "file": "firmware/platforms/stm32/platform_io.c",
+      "line": 4,
+      "symbol": "board.h"
+    },
+    {
+      "from": "platforms_stm32",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/platforms/stm32/platform_io.c",
+      "line": 3,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "platforms_stm32",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/platforms/stm32/platform_io.c",
+      "line": 2,
+      "symbol": "platform_io.h"
+    },
+    {
+      "from": "platforms_stm32",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/platforms/stm32/osal_baremetal.c",
+      "line": 20,
+      "symbol": "osal.h"
+    },
+    {
+      "from": "services",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/services/display.c",
+      "line": 5,
+      "symbol": "config.h"
+    },
+    {
+      "from": "services",
+      "to": "drivers_dht22",
+      "via": "include",
+      "file": "firmware/services/sensors.c",
+      "line": 3,
+      "symbol": "dht22.h"
+    },
+    {
+      "from": "services",
+      "to": "drivers_mpu6050",
+      "via": "include",
+      "file": "firmware/services/sensors.h",
+      "line": 6,
+      "symbol": "mpu6050.h"
+    },
+    {
+      "from": "services",
+      "to": "drivers_sh1106",
+      "via": "include",
+      "file": "firmware/services/display.c",
+      "line": 3,
+      "symbol": "sh1106.h"
+    },
+    {
+      "from": "services",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/services/display.c",
+      "line": 4,
+      "symbol": "platform_io.h"
+    },
+    {
+      "from": "services",
+      "to": "modules",
+      "via": "include",
+      "file": "firmware/services/telemetry.h",
+      "line": 6,
+      "symbol": "ride_events.h"
+    }
+  ],
+  "task_flows": [
+    {
+      "task_node_id": "timer_app_start",
+      "task_label": "app_start",
+      "entry_fn": "app_start",
+      "nodes": [
+        {
+          "id": "f1",
+          "label": "Task app_start",
+          "kind": "entry",
+          "file": "firmware/app/app.c",
+          "line": 14
+        },
+        {
+          "id": "f2",
+          "label": "firmgen_telemetry_start(firmgen_uart_handle())",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 15
+        },
+        {
+          "id": "f3",
+          "label": "firmgen_uart_handle()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 15
+        },
+        {
+          "id": "f4",
+          "label": "(!platform_io_init())",
+          "kind": "decision",
+          "file": "firmware/app/app.c",
+          "line": 20
+        },
+        {
+          "id": "f5",
+          "label": "platform_io_scan()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 24
+        },
+        {
+          "id": "f6",
+          "label": "display_init(platform_io_now_ms())",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 25
+        },
+        {
+          "id": "f7",
+          "label": "platform_io_now_ms()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 25
+        },
+        {
+          "id": "f8",
+          "label": "sensors_init(platform_io_now_ms())",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 26
+        },
+        {
+          "id": "f9",
+          "label": "platform_io_now_ms()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 26
+        },
+        {
+          "id": "f10",
+          "label": "ride_events_init(&events)",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 27
+        },
+        {
+          "id": "f11",
+          "label": "Loop forever",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 28
+        },
+        {
+          "id": "f12",
+          "label": "firmgen_telemetry_poll()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 30
+        },
+        {
+          "id": "f13",
+          "label": "platform_io_now_ms()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 31
+        },
+        {
+          "id": "f14",
+          "label": "platform_io_poll()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 32
+        },
+        {
+          "id": "f15",
+          "label": "sensors_process(now_ms)",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 36
+        },
+        {
+          "id": "f16",
+          "label": "sensors_snapshot()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 37
+        },
+        {
+          "id": "f17",
+          "label": "(is_display_ready && !display_is_splash…",
+          "kind": "decision",
+          "file": "firmware/app/app.c",
+          "line": 38
+        },
+        {
+          "id": "f18",
+          "label": "(readings->acceleration_valid)",
+          "kind": "decision",
+          "file": "firmware/app/app.c",
+          "line": 40
+        },
+        {
+          "id": "f19",
+          "label": "ride_events_sample(&events)",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 45
+        },
+        {
+          "id": "f20",
+          "label": "ride_events_sample(&events)",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 49
+        },
+        {
+          "id": "f21",
+          "label": "ride_events_update(&events)",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 51
+        },
+        {
+          "id": "f22",
+          "label": "(event != previous_event)",
+          "kind": "decision",
+          "file": "firmware/app/app.c",
+          "line": 53
+        },
+        {
+          "id": "f23",
+          "label": "display_set_event(ride_events_message(event))",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 55
+        },
+        {
+          "id": "f24",
+          "label": "ride_events_message(event)",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 55
+        },
+        {
+          "id": "f25",
+          "label": "platform_io_log(event == RIDE_NONE ? \"EVENT cleared\\r\\n…)",
+          "kind": "output",
+          "file": "firmware/app/app.c",
+          "line": 56
+        },
+        {
+          "id": "f26",
+          "label": "(event != RIDE_NONE)",
+          "kind": "decision",
+          "file": "firmware/app/app.c",
+          "line": 57
+        },
+        {
+          "id": "f27",
+          "label": "platform_io_log(ride_events_message(event))",
+          "kind": "output",
+          "file": "firmware/app/app.c",
+          "line": 59
+        },
+        {
+          "id": "f28",
+          "label": "ride_events_message(event)",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 59
+        },
+        {
+          "id": "f29",
+          "label": "platform_io_log(\"\\r\\n\")",
+          "kind": "output",
+          "file": "firmware/app/app.c",
+          "line": 60
+        },
+        {
+          "id": "f30",
+          "label": "platform_io_led(led_on)",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 64
+        },
+        {
+          "id": "f31",
+          "label": "(led_on != previous_led)",
+          "kind": "decision",
+          "file": "firmware/app/app.c",
+          "line": 65
+        },
+        {
+          "id": "f32",
+          "label": "platform_io_log(led_on ? \"LED command ON\\r\\n\" : \"LED co…)",
+          "kind": "output",
+          "file": "firmware/app/app.c",
+          "line": 67
+        },
+        {
+          "id": "f33",
+          "label": "(is_display_ready)",
+          "kind": "decision",
+          "file": "firmware/app/app.c",
+          "line": 70
+        },
+        {
+          "id": "f34",
+          "label": "display_process(platform_io_now_ms())",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 72
+        },
+        {
+          "id": "f35",
+          "label": "platform_io_now_ms()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 72
+        },
+        {
+          "id": "f36",
+          "label": "telemetry_process(platform_io_now_ms())",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 74
+        },
+        {
+          "id": "f37",
+          "label": "platform_io_now_ms()",
+          "kind": "step",
+          "file": "firmware/app/app.c",
+          "line": 74
+        }
+      ],
+      "edges": [
+        {
+          "from": "f1",
+          "to": "f2",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f2",
+          "to": "f3",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f3",
+          "to": "f4",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f4",
+          "to": "f5",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f4",
+          "to": "f5",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f5",
+          "to": "f6",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f6",
+          "to": "f7",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f7",
+          "to": "f8",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f8",
+          "to": "f9",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f9",
+          "to": "f10",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f10",
+          "to": "f11",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f11",
+          "to": "f12",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f12",
+          "to": "f13",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f13",
+          "to": "f14",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f14",
+          "to": "f15",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f15",
+          "to": "f16",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f16",
+          "to": "f17",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f17",
+          "to": "f18",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f18",
+          "to": "f19",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f18",
+          "to": "f20",
+          "label": "no",
+          "loop_back": false
+        },
+        {
+          "from": "f19",
+          "to": "f21",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f20",
+          "to": "f21",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f21",
+          "to": "f22",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f17",
+          "to": "f22",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f22",
+          "to": "f23",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f23",
+          "to": "f24",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f24",
+          "to": "f25",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f25",
+          "to": "f26",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f26",
+          "to": "f27",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f27",
+          "to": "f28",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f28",
+          "to": "f29",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f29",
+          "to": "f30",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f26",
+          "to": "f30",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f22",
+          "to": "f30",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f30",
+          "to": "f31",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f31",
+          "to": "f32",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f32",
+          "to": "f33",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f31",
+          "to": "f33",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f33",
+          "to": "f34",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f34",
+          "to": "f35",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f35",
+          "to": "f36",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f33",
+          "to": "f36",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f36",
+          "to": "f37",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f37",
+          "to": "f11",
+          "label": "next cycle",
+          "loop_back": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "headline": "7 nodes, 1 connection — valid",
+    "node_count": 7,
+    "edge_count": 1,
+    "warnings": [
+      "Unknown node type 'timer'"
+    ]
+  },
+  "diagrams": {
+    "hld": {
+      "title": "High-Level Design",
+      "mermaid": "flowchart TD\n  subgraph Hardware[\"Connected hardware\"]\n    imu[\"Accelerometer<br/>MPU6050 at 0x68\"]\n    dht[\"Temperature and humidity sensor<br/>DHT22 data on PB4\"]\n    oled[\"Display<br/>SH1106 at 0x3C\"]\n    i2c[\"I2C1 bus<br/>PB8 SCL, PB9 SDA\"]\n    led[\"Indicator LED<br/>PA5\"]\n    uart[\"UART device<br/>USART2 TX PA2, RX PA3\"]\n    console[\"Console and telemetry sink<br/>UART output\"]\n  end\n\n  subgraph Firmware[\"Firmware owners\"]\n    app[\"Application orchestration<br/>firmware/app/app.c\"]\n    sensors[\"Sensor service<br/>firmware/services/sensors.c\"]\n    mpu_drv[\"MPU6050 driver<br/>firmware/drivers/mpu6050/mpu6050.c\"]\n    dht_drv[\"DHT22 decoder<br/>firmware/drivers/dht22/dht22.c\"]\n    ride[\"Ride event detection<br/>firmware/modules/ride_events.c\"]\n    display[\"Dashboard and splash service<br/>firmware/services/display.c\"]\n    sh_drv[\"SH1106 driver<br/>firmware/drivers/sh1106/sh1106.c\"]\n    telemetry[\"CSV telemetry service<br/>firmware/services/telemetry.c\"]\n    platform[\"STM32 I/O owner<br/>firmware/platforms/stm32/platform_io.c\"]\n    fgtelemetry[\"Boot and runtime telemetry<br/>firmware/telemetry/firmgen_telemetry.c\"]\n  end\n\n  app -->|sensors_init / sensors_process| sensors\n  app -->|ride_events_sample / update| ride\n  app -->|display_init / set_event / process| display\n  app -->|telemetry_process| telemetry\n  app -->|firmgen_telemetry_start / poll| fgtelemetry\n  app -->|platform_io_init / scan / poll / led| platform\n  sensors -->|mpu6050_init / read| mpu_drv\n  mpu_drv -->|platform_io_read / write| platform\n  sensors -->|DHT frame decode| dht_drv\n  sensors -->|platform_io_dht_frame| platform\n  display -->|sh1106_init / page / enable| sh_drv\n  sh_drv -->|platform_io_transmit| platform\n  telemetry -->|platform_io_telemetry| platform\n  platform -->|HAL_I2C_* on I2C1| i2c\n  i2c -->|I2C register and data transfers| imu\n  i2c -->|I2C display commands and pixels| oled\n  platform -->|GPIO read/write| dht\n  platform -->|HAL_GPIO_WritePin via platform_io_led| led\n  platform -->|HAL_UART_Transmit / LL_USART_TransmitData8| uart\n  platform -->|firmgen_uart_handle| fgtelemetry\n  fgtelemetry -->|HAL_UART_Transmit| uart\n  uart -->|diagnostic logs and telemetry bytes| console",
+      "authored_by_model": true,
+      "node_notes": {
+        "console": "This is the UART output sink for boot/status logs and application telemetry. The platform I/O logger, queued CSV transmitter, and FirmGen telemetry all use USART2.",
+        "uart": "USART2 carries diagnostic logs and telemetry using PA2 for TX and PA3 for RX. platform_io.c initializes it at the configured baud rate and writes through HAL or LL USART operations.",
+        "sensors": "The sensor service schedules MPU6050 sampling and DHT22 reads, calibrates acceleration, and publishes a snapshot. Its timing and validation behavior are implemented in firmware/services/sensors.c.",
+        "telemetry": "The CSV telemetry service formats VPD1 records from the current sensor snapshot and event. It schedules records using APP_TELEMETRY_PERIOD_MS and queues them through platform_io_telemetry.",
+        "imu": "The MPU6050 supplies acceleration samples used for calibration and ride-event detection. Its configured address is 0x68, and the sensor service reaches it through the platform I2C read/write callbacks.",
+        "ride": "The ride-event module compares acceleration samples against configured thresholds and determines event and LED states. app_start submits samples and calls ride_events_update on eligible display-ready iterations.",
+        "led": "PA5 is the application indicator LED output. platform_io_led uses HAL_GPIO_WritePin, with the active-high board level supplied by board_led_level.",
+        "sh_drv": "The SH1106 driver forms initialization, page-addressing, and pixel-data packets. The display service passes platform_io_transmit as its send callback for the I2C display.",
+        "fgtelemetry": "FirmGen telemetry captures boot information and periodically emits runtime data using the UART handle provided by platform_io.c. app_start starts and polls it, and its UART output uses HAL_UART_Transmit.",
+        "display": "The display service manages initialization, splash timing, dashboard rendering, and page refreshes. It uses the SH1106 driver and the platform I/O transmit callback.",
+        "mpu_drv": "The MPU6050 driver verifies identity, configures the accelerometer, and converts register data to g values. It obtains register transfers through the I/O callbacks supplied by the sensor service.",
+        "dht_drv": "The DHT22 driver checks the five-byte frame checksum and converts the data to temperature and humidity. The sensor service calls dht22_decode after the platform layer captures a frame.",
+        "oled": "The SH1106 is the dashboard and startup-logo display at I2C address 0x3C. The display service sends its commands and pixel pages through the SH1106 driver and I2C transport.",
+        "app": "app_start coordinates initialization and the cooperative runtime loop. It invokes sensor, ride-event, display, platform I/O, and telemetry APIs in firmware/app/app.c.",
+        "i2c": "I2C1 connects the MPU6050 and SH1106 using PB8 for SCL and PB9 for SDA. These pin assignments and the HAL I2C initialization and transfers are defined in app_config.h and platform_io.c.",
+        "dht": "The DHT22 supplies temperature and humidity readings through its single-wire data connection on PB4. The platform I/O layer drives and samples this pin to capture frames.",
+        "platform": "This STM32-specific module owns I2C1, USART2, TIM3 timing, DHT22 pin sampling, and the PA5 LED operation. Its HAL/LL implementations and configured pin muxes are in firmware/platforms/stm32/platform_io.c."
+      },
+      "fallback_mermaid": "flowchart TD\n    subgraph hld_lane_driver[\"Drivers\"]\n        drivers_dht22[[\"drivers/dht22<br/>driver · 2 files\"]]\n        drivers_mpu6050[[\"drivers/mpu6050<br/>driver · 2 files\"]]\n        drivers_sh1106[[\"drivers/sh1106<br/>driver · 2 files\"]]\n    end\n    subgraph hld_lane_utility[\"Utilities\"]\n        utils_helpers[\"utils/helpers<br/>utility · 2 files\"]\n        utils_logger[\"utils/logger<br/>utility · 2 files\"]\n    end\n    subgraph hld_lane_hardware[\"Hardware\"]\n        hw_gpio_input_pb8[\"PB8<br/>pin=PB8\"]\n        hw_gpio_input_pb9[\"PB9<br/>pin=PB9\"]\n        hw_gpio_output_pa5[\"PA5<br/>pin=PA5\"]\n        hw_gpio_output_pb4[\"PB4<br/>pin=PB4\"]\n        hw_uart_device_usart2[\"USART2<br/>uart_device\"]\n    end\n    app[\"app<br/>application · 2 files\"]\n    platforms_stm32[[\"platforms/stm32<br/>platform · 2 files\"]]\n    bsp[\"bsp<br/>board · 2 files\"]\n    osal[\"osal<br/>abstraction · 1 file\"]\n    configs[(\"configs<br/>configuration · 5 files\")]\n    Core_Inc[\"Core/Inc<br/>module · 3 files\"]\n    Core_Src[\"Core/Src<br/>module · 4 files\"]\n    Core_Startup_iar[\"Core/Startup/iar<br/>module · 1 file\"]\n    interfaces[\"interfaces<br/>module · 1 file\"]\n    modules[\"modules<br/>module · 2 files\"]\n    services[\"services<br/>module · 8 files\"]\n    telemetry[\"telemetry<br/>module · 3 files\"]\n    sink_logging[(\"Console / UART logging<br/>logging\")]\n    Core_Src -->|main.h| Core_Inc\n    Core_Src -->|app.h| app\n    app -->|app_config.h| configs\n    app -->|platform_io.h| interfaces\n    app -->|ride_events.h| modules\n    app -->|sensors.h| services\n    app -->|firmgen_telemetry.h| telemetry\n    bsp -->|app_config.h| configs\n    modules -->|config.h| configs\n    platforms_stm32 -->|board.h| bsp\n    platforms_stm32 -->|app_config.h| configs\n    platforms_stm32 -->|platform_io.h| interfaces\n    platforms_stm32 -->|osal.h| osal\n    services -->|config.h| configs\n    services -->|dht22.h| drivers_dht22\n    services -->|mpu6050.h| drivers_mpu6050\n    services -->|sh1106.h| drivers_sh1106\n    services -->|platform_io.h| interfaces\n    services -->|ride_events.h| modules\n    app -->|writes| sink_logging\n    drivers_dht22 -->|pin #40;PB8#41;| hw_gpio_input_pb8\n    drivers_dht22 -->|pin #40;PB9#41;| hw_gpio_input_pb9\n    drivers_dht22 -->|pin #40;PA5#41;| hw_gpio_output_pa5\n    drivers_dht22 -->|pin #40;PB4#41;| hw_gpio_output_pb4\n    drivers_dht22 -->|drives| hw_uart_device_usart2\n    classDef hldEntrypoint fill:#1f6feb,stroke:#4c8dff,color:#ffffff,stroke-width:2px\n    classDef hldApplication fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    classDef hldDriver fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef hldPlatform fill:#2b1f3a,stroke:#a97fe0,color:#e3d5f7,stroke-width:2px\n    classDef hldBoard fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef hldUtility fill:#22262b,stroke:#8b949e,color:#d6dde5,stroke-width:2px\n    classDef hldConfiguration fill:#3a2f12,stroke:#d9a441,color:#f2e3c0,stroke-width:2px\n    classDef hldHardware fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef hldNetwork fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef hldSink fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    class app hldApplication\n    class drivers_dht22 hldDriver\n    class drivers_mpu6050 hldDriver\n    class drivers_sh1106 hldDriver\n    class platforms_stm32 hldPlatform\n    class bsp hldBoard\n    class osal hldPlatform\n    class utils_helpers hldUtility\n    class utils_logger hldUtility\n    class configs hldConfiguration\n    class hw_gpio_input_pb8 hldHardware\n    class hw_gpio_input_pb9 hldHardware\n    class hw_gpio_output_pa5 hldHardware\n    class hw_gpio_output_pb4 hldHardware\n    class hw_uart_device_usart2 hldHardware\n    class sink_logging hldSink"
+    },
+    "lld": {
+      "title": "Low-Level Design (Firmware Workflow)",
+      "mermaid": "flowchart TD\n  subgraph AppStart[\"app_start main-context loop\"]\n    start[\"Start telemetry and initialize application state<br/>firmware/app/app.c:14\"]\n    init{\"platform_io_init succeeds — firmware/app/app.c:21\"}\n    failed[\"Return from app_start<br/>firmware/app/app.c:22\"]\n    setup[\"Scan bus#59; initialize display, sensors, and ride events<br/>firmware/app/app.c:25-27\"]\n    poll[\"Poll telemetry and platform I/O#59; read current time<br/>firmware/app/app.c:29-32\"]\n    process[\"Process sensor schedules and get snapshot<br/>firmware/app/app.c:37-39\"]\n    display_gate{\"Display ready and splash finished — firmware/app/app.c:42\"}\n    accel_gate{\"Acceleration reading valid — firmware/app/app.c:44\"}\n    sample[\"Submit acceleration sample or invalid sample<br/>firmware/app/app.c:46-56\"]\n    update[\"Update ride event and LED state<br/>firmware/app/app.c:58\"]\n    event_gate{\"Event changed — firmware/app/app.c:59\"}\n    event_output[\"Update display event text and log event<br/>firmware/app/app.c:61-69\"]\n    led[\"Apply LED state<br/>firmware/app/app.c:71\"]\n    led_gate{\"LED state changed — firmware/app/app.c:72\"}\n    led_log[\"Log LED command<br/>firmware/app/app.c:74-78\"]\n    display_ready{\"Display initialized — firmware/app/app.c:80\"}\n    render[\"Process display state and dashboard pages<br/>firmware/app/app.c:82\"]\n    telemetry[\"Process periodic CSV telemetry<br/>firmware/app/app.c:84\"]\n  end\n\n  start --> init\n  init -->|no| failed\n  init -->|yes| setup\n  setup --> poll\n  poll --> process\n  process --> display_gate\n  display_gate -->|yes| accel_gate\n  display_gate -->|no| event_gate\n  accel_gate -->|yes| sample\n  accel_gate -->|no| sample\n  sample --> update\n  update --> event_gate\n  event_gate -->|yes| event_output\n  event_gate -->|no| led\n  event_output --> led\n  led --> led_gate\n  led_gate -->|yes| led_log\n  led_gate -->|no| display_ready\n  led_log --> display_ready\n  display_ready -->|yes| render\n  display_ready -->|no| telemetry\n  render --> telemetry\n  telemetry -->|next loop| poll",
+      "authored_by_model": true,
+      "node_notes": {
+        "render": "When the display is ready, display_process advances splash or dashboard rendering using the current snapshot. The call is in the app_start loop after event and LED handling.",
+        "telemetry": "The application calls telemetry_process with the current time, readings, and event every loop; the service itself enforces the configured record period. The call is at the end of the app_start iteration.",
+        "event_output": "When the event changes, the application updates display text and logs either a cleared event or the selected event message. These calls are grouped under the change condition in app_start.",
+        "start": "This step starts FirmGen telemetry and initializes app-local state before hardware setup. The calls are at the beginning of app_start in firmware/app/app.c.",
+        "init": "This branch checks whether platform_io_init completed successfully. app_start returns immediately on failure rather than entering the sensor and display loop.",
+        "accel_gate": "The branch selects a real acceleration sample when acceleration_valid is true and otherwise supplies NULL. That validity check appears in the event-processing block of app_start.",
+        "display_ready": "The application checks whether display initialization succeeded before processing display state. A failed display initialization therefore skips recurring display work.",
+        "led": "The application sends the current alert LED state to the platform layer on each loop iteration. The call is platform_io_led in firmware/app/app.c.",
+        "poll": "Each cooperative-loop iteration polls FirmGen telemetry, reads the tick count, and polls platform I/O. This is the first recurring work in app_start's loop.",
+        "led_log": "The application logs whether the LED command changed to ON or OFF, then records the new previous state. This conditional logging follows the LED state comparison.",
+        "event_gate": "This decision prevents repeated event-change display updates and logs. It compares the current event with previous_event in app_start.",
+        "display_gate": "Ride-event sampling and updating only happen when the display initialized successfully and is no longer showing its splash. The condition is checked in app_start before event processing.",
+        "failed": "An I/O initialization failure ends app_start before any runtime polling begins. The early return is in firmware/app/app.c directly after platform_io_init.",
+        "process": "The sensor service updates scheduled sensor readings and app_start obtains the resulting snapshot. The calls are sensors_process and sensors_snapshot in firmware/app/app.c.",
+        "update": "The ride-event module selects the active event and computes the LED state for the current time. app_start calls ride_events_update after submitting the sample.",
+        "setup": "On success, app_start scans the I2C bus, initializes the display and sensors, and initializes ride-event state. These setup calls occur before the infinite loop in firmware/app/app.c.",
+        "sample": "The application submits either the snapshot's acceleration and timestamp or an invalid sample to ride_events_sample. Both paths are present in firmware/app/app.c.",
+        "led_gate": "This check detects transitions in the requested LED state so the application logs only changes. It compares led_on to previous_led in app_start."
+      },
+      "fallback_mermaid": "flowchart TD\n    lld_t0_f1([\"Task app_start<br/>app.c:14\"])\n    lld_t0_f2[\"firmgen_telemetry_start#40;firmgen_uart_handle#40;#41;#41;<br/>app.c:15\"]\n    lld_t0_f3[\"firmgen_uart_handle#40;#41;<br/>app.c:15\"]\n    lld_t0_f4{\"#40;!platform_io_init#40;#41;#41; — app.c:20\"}\n    lld_t0_f5[\"platform_io_scan#40;#41;<br/>app.c:24\"]\n    lld_t0_f6[\"display_init#40;platform_io_now_ms#40;#41;#41;<br/>app.c:25\"]\n    lld_t0_f7[\"platform_io_now_ms#40;#41;<br/>app.c:25\"]\n    lld_t0_f8[\"sensors_init#40;platform_io_now_ms#40;#41;#41;<br/>app.c:26\"]\n    lld_t0_f9[\"platform_io_now_ms#40;#41;<br/>app.c:26\"]\n    lld_t0_f10[\"ride_events_init#40;&events#41;<br/>app.c:27\"]\n    lld_t0_f11[\"Loop forever<br/>app.c:28\"]\n    lld_t0_f12[\"firmgen_telemetry_poll#40;#41;<br/>app.c:30\"]\n    lld_t0_f13[\"platform_io_now_ms#40;#41;<br/>app.c:31\"]\n    lld_t0_f14[\"platform_io_poll#40;#41;<br/>app.c:32\"]\n    lld_t0_f15[\"sensors_process#40;now_ms#41;<br/>app.c:36\"]\n    lld_t0_f16[\"sensors_snapshot#40;#41;<br/>app.c:37\"]\n    lld_t0_f17{\"#40;is_display_ready && !display_is_splash… — app.c:38\"}\n    lld_t0_f18{\"#40;readings-#gt;acceleration_valid#41; — app.c:40\"}\n    lld_t0_f19[\"ride_events_sample#40;&events#41;<br/>app.c:45\"]\n    lld_t0_f20[\"ride_events_sample#40;&events#41;<br/>app.c:49\"]\n    lld_t0_f21[\"ride_events_update#40;&events#41;<br/>app.c:51\"]\n    lld_t0_f22{\"#40;event != previous_event#41; — app.c:53\"}\n    lld_t0_f23[\"display_set_event#40;ride_events_message#40;event#41;#41;<br/>app.c:55\"]\n    lld_t0_f24[\"ride_events_message#40;event#41;<br/>app.c:55\"]\n    lld_t0_f25[\"platform_io_log#40;event == RIDE_NONE ? #quot;EVENT cleared#92;r#92;n…#41;<br/>app.c:56\"]\n    lld_t0_f26{\"#40;event != RIDE_NONE#41; — app.c:57\"}\n    lld_t0_f27[\"platform_io_log#40;ride_events_message#40;event#41;#41;<br/>app.c:59\"]\n    lld_t0_f28[\"ride_events_message#40;event#41;<br/>app.c:59\"]\n    lld_t0_f29[\"platform_io_log#40;#quot;#92;r#92;n#quot;#41;<br/>app.c:60\"]\n    lld_t0_f30[\"platform_io_led#40;led_on#41;<br/>app.c:64\"]\n    lld_t0_f31{\"#40;led_on != previous_led#41; — app.c:65\"}\n    lld_t0_f32[\"platform_io_log#40;led_on ? #quot;LED command ON#92;r#92;n#quot; : #quot;LED co…#41;<br/>app.c:67\"]\n    lld_t0_f33{\"#40;is_display_ready#41; — app.c:70\"}\n    lld_t0_f34[\"display_process#40;platform_io_now_ms#40;#41;#41;<br/>app.c:72\"]\n    lld_t0_f35[\"platform_io_now_ms#40;#41;<br/>app.c:72\"]\n    lld_t0_f36[\"telemetry_process#40;platform_io_now_ms#40;#41;#41;<br/>app.c:74\"]\n    lld_t0_f37[\"platform_io_now_ms#40;#41;<br/>app.c:74\"]\n    lld_t0_f1 --> lld_t0_f2\n    lld_t0_f2 --> lld_t0_f3\n    lld_t0_f3 --> lld_t0_f4\n    lld_t0_f4 --> lld_t0_f5\n    lld_t0_f4 --> lld_t0_f5\n    lld_t0_f5 --> lld_t0_f6\n    lld_t0_f6 --> lld_t0_f7\n    lld_t0_f7 --> lld_t0_f8\n    lld_t0_f8 --> lld_t0_f9\n    lld_t0_f9 --> lld_t0_f10\n    lld_t0_f10 --> lld_t0_f11\n    lld_t0_f11 --> lld_t0_f12\n    lld_t0_f12 --> lld_t0_f13\n    lld_t0_f13 --> lld_t0_f14\n    lld_t0_f14 --> lld_t0_f15\n    lld_t0_f15 --> lld_t0_f16\n    lld_t0_f16 --> lld_t0_f17\n    lld_t0_f17 ==>|yes| lld_t0_f18\n    lld_t0_f18 ==>|yes| lld_t0_f19\n    lld_t0_f18 ==>|no| lld_t0_f20\n    lld_t0_f19 --> lld_t0_f21\n    lld_t0_f20 --> lld_t0_f21\n    lld_t0_f21 --> lld_t0_f22\n    lld_t0_f17 --> lld_t0_f22\n    lld_t0_f22 ==>|yes| lld_t0_f23\n    lld_t0_f23 --> lld_t0_f24\n    lld_t0_f24 --> lld_t0_f25\n    lld_t0_f25 --> lld_t0_f26\n    lld_t0_f26 ==>|yes| lld_t0_f27\n    lld_t0_f27 --> lld_t0_f28\n    lld_t0_f28 --> lld_t0_f29\n    lld_t0_f29 --> lld_t0_f30\n    lld_t0_f26 --> lld_t0_f30\n    lld_t0_f22 --> lld_t0_f30\n    lld_t0_f30 --> lld_t0_f31\n    lld_t0_f31 ==>|yes| lld_t0_f32\n    lld_t0_f32 --> lld_t0_f33\n    lld_t0_f31 --> lld_t0_f33\n    lld_t0_f33 ==>|yes| lld_t0_f34\n    lld_t0_f34 --> lld_t0_f35\n    lld_t0_f35 --> lld_t0_f36\n    lld_t0_f33 --> lld_t0_f36\n    lld_t0_f36 --> lld_t0_f37\n    lld_t0_f37 -.->|next cycle| lld_t0_f11\n    linkStyle 0 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 1 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 2 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 3 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 4 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 5 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 6 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 7 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 8 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 9 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 10 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 11 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 12 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 13 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 14 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 15 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 16 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 17 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 18 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 19 stroke:#e2703a,stroke-width:2.5px\n    linkStyle 20 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 21 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 22 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 23 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 24 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 25 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 26 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 27 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 28 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 29 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 30 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 31 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 32 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 33 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 34 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 35 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 36 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 37 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 38 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 39 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 40 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 41 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 42 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 43 stroke:#a97fe0,stroke-width:2px\n    classDef lldEntry fill:#1f6feb,stroke:#4c8dff,color:#ffffff,stroke-width:2px\n    classDef lldDecision fill:#3a2f12,stroke:#d9a441,color:#f2e3c0,stroke-width:2px\n    classDef lldError fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef lldOutput fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    classDef lldTx fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef lldTimer fill:#2b1f3a,stroke:#a97fe0,color:#e3d5f7,stroke-width:2px\n    class lld_t0_f1 lldEntry\n    class lld_t0_f4 lldDecision\n    class lld_t0_f17 lldDecision\n    class lld_t0_f18 lldDecision\n    class lld_t0_f22 lldDecision\n    class lld_t0_f25 lldOutput\n    class lld_t0_f26 lldDecision\n    class lld_t0_f27 lldOutput\n    class lld_t0_f29 lldOutput\n    class lld_t0_f31 lldDecision\n    class lld_t0_f32 lldOutput\n    class lld_t0_f33 lldDecision"
+    },
+    "sequence": {
+      "title": "Sequence Diagram",
+      "mermaid": "sequenceDiagram\n  participant Main as STM32 main\n  participant App as app_start\n  participant IO as platform_io\n  participant Sensors as Sensor service\n  participant I2C as I2C1 devices\n  participant Ride as Ride event module\n  participant Display as Display service\n  participant Telemetry as Telemetry services\n  participant UART as USART2 console\n\n  Main->>App: app_start\n  App->>Telemetry: firmgen_telemetry_start\n  App->>IO: platform_io_init\n  alt I/O initialization fails\n    IO-->>App: false\n    App-->>Main: return\n  else I/O initialization succeeds\n    IO-->>App: true\n    App->>IO: platform_io_scan\n    IO->>I2C: scan device addresses\n    IO->>UART: log bus scan results\n    App->>Display: display_init\n    Display->>I2C: initialize and clear SH1106\n    App->>Sensors: sensors_init\n    Sensors->>I2C: initialize MPU6050 at 0x68\n    App->>Ride: ride_events_init\n    loop app_start cooperative loop\n      App->>Telemetry: firmgen_telemetry_poll\n      App->>IO: platform_io_now_ms and platform_io_poll\n      App->>Sensors: sensors_process\n      Sensors->>I2C: scheduled MPU6050 reads\n      Sensors->>IO: scheduled DHT22 frame read on PB4\n      App->>Sensors: sensors_snapshot\n      alt Display ready and splash finished\n        alt Acceleration is valid\n          App->>Ride: ride_events_sample with acceleration\n        else Acceleration is invalid\n          App->>Ride: ride_events_sample with NULL\n        end\n        App->>Ride: ride_events_update\n      end\n      opt Ride event changed\n        App->>Display: display_set_event\n        App->>IO: log event change\n      end\n      App->>IO: platform_io_led\n      opt LED state changed\n        App->>IO: log LED command\n      end\n      opt Display initialized\n        App->>Display: display_process with readings\n        Display->>I2C: update display pages when due\n      end\n      App->>Telemetry: telemetry_process\n      Telemetry->>IO: queue CSV record when due\n      IO->>UART: transmit queued bytes\n      Telemetry->>UART: send boot/runtime telemetry when due\n    end\n  end",
+      "participants": [
+        "Main",
+        "App",
+        "IO",
+        "Sensors",
+        "I2C",
+        "Ride",
+        "Display",
+        "Telemetry",
+        "UART"
+      ],
+      "generated_from": [
+        "Core/Src/main.c",
+        "firmware/platforms/stm32/platform_io.c",
+        "firmware/app/app.c"
+      ],
+      "grounding": 0.0,
+      "authored_by_model": true,
+      "fallback_mermaid": "sequenceDiagram\n    autonumber\n    participant timer_app_start as Task app_start\n    participant boot as Boot / app_main\n    boot->>timer_app_start: creates\n    loop task cycle\n        timer_app_start->>boot: firmgen_telemetry_start(firmgen_uart_handle())\n        timer_app_start->>boot: firmgen_uart_handle()\n        timer_app_start->>boot: (!platform_io_init())\n        alt (!platform_io_init())\n            timer_app_start->>boot: platform_io_scan()\n        else no\n            timer_app_start-->>timer_app_start: platform_io_scan()\n        end\n        timer_app_start->>boot: display_init(platform_io_now_ms())\n        timer_app_start->>boot: platform_io_now_ms()\n        timer_app_start->>boot: sensors_init(platform_io_now_ms())\n        timer_app_start->>boot: platform_io_now_ms()\n        timer_app_start->>boot: ride_events_init(&events)\n        timer_app_start->>boot: Loop forever\n        timer_app_start->>boot: firmgen_telemetry_poll()\n        timer_app_start->>boot: platform_io_now_ms()\n        timer_app_start->>boot: platform_io_poll()\n        timer_app_start->>boot: sensors_process(now_ms)\n        timer_app_start->>boot: sensors_snapshot()\n        timer_app_start->>boot: (is_display_ready && !display_is_splash…\n        alt (is_display_ready && !display_is_splash…\n            timer_app_start->>boot: (readings-#gt;acceleration_valid)\n        else no\n            timer_app_start-->>timer_app_start: (event != previous_event)\n        end\n        alt (readings-#gt;acceleration_valid)\n            timer_app_start->>boot: ride_events_sample(&events)\n        else no\n            timer_app_start-->>timer_app_start: ride_events_sample(&events)\n        end\n        timer_app_start->>boot: ride_events_update(&events)\n        timer_app_start->>boot: ride_events_update(&events)\n        timer_app_start->>boot: (event != previous_event)\n        alt (event != previous_event)\n            timer_app_start->>boot: display_set_event(ride_events_message(event))\n        else no\n            timer_app_start-->>timer_app_start: platform_io_led(led_on)\n        end\n        timer_app_start->>boot: ride_events_message(event)\n        timer_app_start->>boot: platform_io_log(event == RIDE_NONE ? #quot;EVENT cleared\\r\\n…)\n        timer_app_start->>boot: (event != RIDE_NONE)\n        alt (event != RIDE_NONE)\n            timer_app_start->>boot: platform_io_log(ride_events_message(event))\n        else no\n            timer_app_start-->>timer_app_start: platform_io_led(led_on)\n        end\n        timer_app_start->>boot: ride_events_message(event)\n        timer_app_start->>boot: platform_io_log(#quot;\\r\\n#quot;)\n        timer_app_start->>boot: platform_io_led(led_on)\n        timer_app_start->>boot: (led_on != previous_led)\n        alt (led_on != previous_led)\n            timer_app_start->>boot: platform_io_log(led_on ? #quot;LED command ON\\r\\n#quot; : #quot;LED co…)\n        else no\n            timer_app_start-->>timer_app_start: (is_display_ready)\n        end\n        timer_app_start->>boot: (is_display_ready)\n        alt (is_display_ready)\n            timer_app_start->>boot: display_process(platform_io_now_ms())\n        else no\n            timer_app_start-->>timer_app_start: telemetry_process(platform_io_now_ms())\n        end\n        timer_app_start->>boot: platform_io_now_ms()\n        timer_app_start->>boot: telemetry_process(platform_io_now_ms())\n        timer_app_start->>boot: platform_io_now_ms()\n    end"
+    },
+    "model_pass_expected": true,
+    "model_pass_revision": "7c96595f4e37ab78823acf279831f536",
+    "model_pass_prompt_version": "1"
+  },
+  "change_log": [],
+  "unresolved": [],
+  "read_only": false,
+  "graph_version": 8,
+  "generation": {
+    "mode": "static",
+    "triggered_by": "design_doc_button",
+    "analyzed_at_ms": 1794839268616,
+    "input_files": [
+      "CMakeLists.txt",
+      "Core/Inc/main.h",
+      "Core/Inc/stm32g0xx_hal_conf.h",
+      "Core/Inc/stm32g0xx_it.h",
+      "Core/Src/main.c",
+      "Core/Src/stm32g0xx_hal_msp.c",
+      "Core/Src/stm32g0xx_it.c",
+      "Core/Src/system_stm32g0xx.c",
+      "Core/Startup/iar/firmgen_iar_syscalls.c",
+      "firmware/app/app.c",
+      "firmware/app/app.h",
+      "firmware/bsp/board.c",
+      "firmware/bsp/board.h",
+      "firmware/configs/app_config.h",
+      "firmware/configs/build_config.h",
+      "firmware/configs/config.h",
+      "firmware/configs/feature_config.h",
+      "firmware/configs/platform_config.h",
+      "firmware/drivers/dht22/dht22.c",
+      "firmware/drivers/dht22/dht22.h",
+      "firmware/drivers/mpu6050/mpu6050.c",
+      "firmware/drivers/mpu6050/mpu6050.h",
+      "firmware/drivers/sh1106/sh1106.c",
+      "firmware/drivers/sh1106/sh1106.h",
+      "firmware/interfaces/platform_io.h",
+      "firmware/modules/ride_events.c",
+      "firmware/modules/ride_events.h",
+      "firmware/osal/osal.h",
+      "firmware/platforms/stm32/osal_baremetal.c",
+      "firmware/platforms/stm32/platform_io.c",
+      "firmware/services/display.c",
+      "firmware/services/display.h",
+      "firmware/services/display_font.h",
+      "firmware/services/logo.h",
+      "firmware/services/sensors.c",
+      "firmware/services/sensors.h",
+      "firmware/services/telemetry.c",
+      "firmware/services/telemetry.h",
+      "firmware/telemetry/fg_telemetry_profile.h",
+      "firmware/telemetry/firmgen_telemetry.c",
+      "firmware/telemetry/firmgen_telemetry.h",
+      "firmware/utils/helpers/helpers.c",
+      "firmware/utils/helpers/helpers.h",
+      "firmware/utils/logger/logger.c",
+      "firmware/utils/logger/logger.h"
+    ]
+  },
+  "sync_metadata": {
+    "project_file": "",
+    "content_hash": "",
+    "pending_patches": [],
+    "last_diff": {
+      "from_revision": "12c678b1c7594da670348b32985698cf",
+      "to_revision": "7c96595f4e37ab78823acf279831f536",
+      "nodes_added": [],
+      "nodes_removed": [],
+      "nodes_changed": [],
+      "edges_added": [
+        "e_timer_app_start_gpio_input_pb8_reads",
+        "e_timer_app_start_gpio_input_pb9_reads",
+        "e_timer_app_start_publishes_usart2"
+      ],
+      "edges_removed": [
+        "e_app_start_initializes_pb8_i2c_scl",
+        "e_app_start_initializes_pb9_i2c_sda"
+      ],
+      "edges_changed": []
+    }
+  },
+  "validation_state": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 1,
+    "validated_at_ms": 1794839317324
+  }
+}

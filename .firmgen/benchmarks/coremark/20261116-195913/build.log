@@ -1,0 +1,38 @@
+$ C:\ST\STM32CubeCLT_1.22.0\CMake\bin\cmake.exe -B C:/Users/Adith/AppData/Local/Temp/fg-bench/72a8d3c6ad394b32357e/coremark/Release-arm-gcc -DCMAKE_PROJECT_INCLUDE=C:/Users/Adith/OneDrive/Desktop/VPD/vehicleparametersdisplay/.firmgen/benchmarks/coremark/work/firmgen_coremark.cmake -DFIRMGEN_COREMARK_DIR=C:/Users/Adith/OneDrive/Desktop/VPD/vehicleparametersdisplay/.firmgen/benchmarks/coremark/work/src -DFIRMGEN_COREMARK_PROJECT_ROOT=C:/Users/Adith/OneDrive/Desktop/VPD/vehicleparametersdisplay -DFIRMGEN_COREMARK_BOARD_DIR=C:/Users/Adith/OneDrive/Desktop/VPD/vehicleparametersdisplay -S C:/Users/Adith/OneDrive/Desktop/VPD/vehicleparametersdisplay -G Ninja -DCMAKE_BUILD_TYPE=Release -DFIRMGEN_COREMARK_CMSIS=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=C:/Users/Adith/OneDrive/Desktop/VPD/vehicleparametersdisplay/cmake/arm-none-eabi.cmake -DCMAKE_MAKE_PROGRAM=C:\ST\STM32CubeCLT_1.22.0\Ninja\bin\ninja.exe -DFIRMGEN_COREMARK_DEVICE_HEADER=stm32g0xx.h -DFIRMGEN_RTOS=none  (cwd C:\Users\Adith\OneDrive\Desktop\VPD\vehicleparametersdisplay)
+-- The C compiler identification is GNU 14.3.1
+-- The ASM compiler identification is GNU
+-- Found assembler: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gcc.exe
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Firmgen: linking with the user-provided linker script C:/Users/Adith/OneDrive/Desktop/VPD/vehicleparametersdisplay/STM32G070RBTX_FLASH.ld
+-- FirmGen CoreMark: 0 application source(s) replaced by CoreMark
+-- Configuring done (1.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Adith/AppData/Local/Temp/fg-bench/72a8d3c6ad394b32357e/coremark/Release-arm-gcc
+$ C:\ST\STM32CubeCLT_1.22.0\CMake\bin\cmake.exe --build C:/Users/Adith/AppData/Local/Temp/fg-bench/72a8d3c6ad394b32357e/coremark/Release-arm-gcc --target firmgen_coremark
+[0/2] Re-checking globbed directories...
+[1/11] Building ASM object CMakeFiles/firmgen_coremark.dir/Core/Startup/startup_stm32g070rbtx.s.obj
+[2/11] Building C object CMakeFiles/firmgen_coremark.dir/Core/Src/system_stm32g0xx.c.obj
+[3/11] Building C object CMakeFiles/firmgen_coremark.dir/.firmgen/benchmarks/coremark/work/src/core_state.c.obj
+[4/11] Building C object CMakeFiles/firmgen_coremark.dir/.firmgen/benchmarks/coremark/work/src/firmgen_printf.c.obj
+[5/11] Building C object CMakeFiles/firmgen_coremark.dir/.firmgen/benchmarks/coremark/work/src/core_portme.c.obj
+[6/11] Building C object CMakeFiles/firmgen_coremark.dir/.firmgen/benchmarks/coremark/work/src/core_util.c.obj
+[7/11] Building C object CMakeFiles/firmgen_coremark.dir/.firmgen/benchmarks/coremark/work/src/core_main.c.obj
+[8/11] Building C object CMakeFiles/firmgen_coremark.dir/.firmgen/benchmarks/coremark/work/src/core_matrix.c.obj
+[9/11] Building C object CMakeFiles/firmgen_coremark.dir/.firmgen/benchmarks/coremark/work/src/core_list_join.c.obj
+[10/11] Linking C executable firmgen_coremark.elf
+C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o): note: the message above does not take linker garbage collection into account
+C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o): note: the message above does not take linker garbage collection into account
+C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o): note: the message above does not take linker garbage collection into account
+C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o): note: the message above does not take linker garbage collection into account

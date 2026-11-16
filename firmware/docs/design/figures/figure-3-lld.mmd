@@ -1,0 +1,45 @@
+flowchart TD
+  subgraph AppStart["app_start main-context loop"]
+    start["Start telemetry and initialize application state<br/>firmware/app/app.c:14"]
+    init{"platform_io_init succeeds — firmware/app/app.c:21"}
+    failed["Return from app_start<br/>firmware/app/app.c:22"]
+    setup["Scan bus#59; initialize display, sensors, and ride events<br/>firmware/app/app.c:25-27"]
+    poll["Poll telemetry and platform I/O#59; read current time<br/>firmware/app/app.c:29-32"]
+    process["Process sensor schedules and get snapshot<br/>firmware/app/app.c:37-39"]
+    display_gate{"Display ready and splash finished — firmware/app/app.c:42"}
+    accel_gate{"Acceleration reading valid — firmware/app/app.c:44"}
+    sample["Submit acceleration sample or invalid sample<br/>firmware/app/app.c:46-56"]
+    update["Update ride event and LED state<br/>firmware/app/app.c:58"]
+    event_gate{"Event changed — firmware/app/app.c:59"}
+    event_output["Update display event text and log event<br/>firmware/app/app.c:61-69"]
+    led["Apply LED state<br/>firmware/app/app.c:71"]
+    led_gate{"LED state changed — firmware/app/app.c:72"}
+    led_log["Log LED command<br/>firmware/app/app.c:74-78"]
+    display_ready{"Display initialized — firmware/app/app.c:80"}
+    render["Process display state and dashboard pages<br/>firmware/app/app.c:82"]
+    telemetry["Process periodic CSV telemetry<br/>firmware/app/app.c:84"]
+  end
+
+  start --> init
+  init -->|no| failed
+  init -->|yes| setup
+  setup --> poll
+  poll --> process
+  process --> display_gate
+  display_gate -->|yes| accel_gate
+  display_gate -->|no| event_gate
+  accel_gate -->|yes| sample
+  accel_gate -->|no| sample
+  sample --> update
+  update --> event_gate
+  event_gate -->|yes| event_output
+  event_gate -->|no| led
+  event_output --> led
+  led --> led_gate
+  led_gate -->|yes| led_log
+  led_gate -->|no| display_ready
+  led_log --> display_ready
+  display_ready -->|yes| render
+  display_ready -->|no| telemetry
+  render --> telemetry
+  telemetry -->|next loop| poll

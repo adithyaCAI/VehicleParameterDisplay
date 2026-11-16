@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "updated_at_ms": 1794834500877,
+  "project_root": "C:\\Users\\Adith\\OneDrive\\Desktop\\VPD\\vehicleparametersdisplay",
+  "hal_version": "HAL1",
+  "elf": "C:\\Users\\Adith\\OneDrive\\Desktop\\VPD\\vehicleparametersdisplay\\build\\vehicleparametersdisplay.elf",
+  "added": 1,
+  "armed": 0,
+  "passed": 0,
+  "files": [
+    {
+      "file": "C:/Users/Adith/OneDrive/Desktop/VPD/vehicleparametersdisplay/Core/Src/stm32g0xx_it.c",
+      "name": "stm32g0xx_it.c",
+      "breakpoints": [
+        {
+          "id": 1,
+          "intent": "hardfault",
+          "function": "HardFault_Handler",
+          "line": 86,
+          "source": "application",
+          "armed": false,
+          "hit_count": 0,
+          "priority": "critical",
+          "reason": "fault catch",
+          "note": "startup/application symbol, not part of the HAL API armed at 0x08000a0e"
+        }
+      ],
+      "count": 1,
+      "hit_count": 0
+    }
+  ],
+  "last_run": {
+    "stopped": false,
+    "reason": "running",
+    "function": null,
+    "file": null,
+    "line": null,
+    "error": null
+  },
+  "phase": "complete"
+}
